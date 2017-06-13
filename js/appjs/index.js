@@ -9,7 +9,6 @@
 	   	        _username=plus.storage.getItem("username");
 	   	        _password=plus.storage.getItem("password");
 	   	        _isauto =plus.storage.getItem("isauto");
-	   	        console.log("dddd+"+_isauto);
 	   	        _deviceid=plus.device.uuid;
 	   	        login(_username,_password,_isauto);
 	      });
@@ -23,7 +22,6 @@
   })();
   
    function login (username,password,isauto){
-   	console.log(isauto);
    	    if(isauto&&username!=null&&password!=null){
    	    	       mui.post('http://192.168.2.46:8089/mologin',{
 				   	   username:username,

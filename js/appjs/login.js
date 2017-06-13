@@ -61,7 +61,6 @@
  
   function setLocalData(key,value){
   	  if(mui.os.plus){
-  	  	console.log(key+":"+value);
   	  	   plus.storage.setItem(key,value);
   	  }else{
   	  	  localStorage.setItem(key,value);
