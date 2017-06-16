@@ -37,7 +37,7 @@
 })();
 //登录
      function login(username,password,isauto,deviceid){
- 	        mui.post('http://192.168.2.46:8089/mologin',{
+ 	        mui.post('http://192.168.2.238:8089/mologin',{
 				   	   username:username,
 				   	   password:password,
 				   	   deviceid:deviceid
@@ -50,6 +50,7 @@
 				   	      	  setLocalData("username",username);
 				   	      	  setLocalData("password",password);
 				   	      	  setLocalData("isauto",isauto);
+				   	      	  setLocalData("uname",data.uname);
 				   	      }else{
 				   	      	  mui.toast("登录失败，请重新输入用户名和密码");
 				   	      	  document.getElementById("account").value='';

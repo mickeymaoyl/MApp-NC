@@ -57,7 +57,7 @@ function initPage(){
 
 function queryApproveInfo(billtype,billid){
 	var param  =new Object();
-	param.billtype=billtype||'ht';
+	param.billtype=billtype||'2645';
 	param.billid=billid;
 	sendUrlCmd(this,"wxApprove","queryappinfo",param,setApproveInfot);
 }

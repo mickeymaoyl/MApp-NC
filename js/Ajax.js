@@ -104,7 +104,7 @@ function sendUrlCmd(sender,module,action,param, callback){
 //  _args["psncode"]= _uid;
     var _module = module || 'wxApprove';
     //var url = 'http://localhost:8089/'+ action;
-    var url='http://192.168.2.46:8089/'+action;
+    var url='http://192.168.2.238:8089/'+action;
     //var url = 'http://www.czycloud.xyz:9998/service/' + _module;
     var ajax = appAjax(url);
     ajax.requestJson(_args,callback);

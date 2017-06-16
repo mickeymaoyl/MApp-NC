@@ -60,7 +60,13 @@
 	"new.html": {
 		"resources": [
 			"js/appjs/new.js",
-			"css/mui.min.css"
+			"css/mui.min.css",
+			"images/icon.jpeg",
+			"js/Ajax.js",
+			"js/vue.js",
+			"js/vue-mui.js",
+			"js/mui.min.js",
+			"fonts/mui.ttf"
 		],
 		"refer": []
 	},
@@ -96,7 +102,8 @@
 			"js/mui.pullToRefresh.material.js"
 		],
 		"refer": [
-			"approve.html"
+			"approve.html",
+			"approve_bx.html"
 		]
 	},
 	"approve.html": {
@@ -123,6 +130,12 @@
 			"js/mui.min.js",
 			"fonts/mui.ttf",
 			"css/mui.min.css"
+		]
+	},
+	"approve_bx.html": {
+		"resources": [
+			"js/appjs/approve.js",
+			"js/fj.js"
 		]
 	}
 }

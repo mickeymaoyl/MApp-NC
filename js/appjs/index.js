@@ -23,7 +23,7 @@
   
    function login (username,password,isauto){
    	    if(isauto&&username!=null&&password!=null){
-   	    	       mui.post('http://192.168.2.46:8089/mologin',{
+   	    	       mui.post('http://192.168.2.238:8089/mologin',{
 				   	   username:username,
 				   	   password:password,
 				   	   deviceid:_deviceid

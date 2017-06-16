@@ -82,26 +82,41 @@
 									   <div class="mui-card" v-for="item in applist">
 									   	    <div class="mui-row mui-content-padded">
 												<div class="mui-col-xs-8 mui-col-sm-8">
-													<div >
-													<span>待审批单据：{{item.vbillcode}}</span>
+													<div class="mui-row mui-row-board ">
+								              	  	   <div class="mui-col-xs-5 mui-col-sm-5 ">
+								              	  	   	 待审批单据号:
+								              	  	   </div>
+								              	  	    <div class="mui-col-xs-5 mui-col-sm-5 ">
+								              	  	   	 {{item.billno}}
+								              	  	   </div>
+							              	        </div>
+							              	        <div class="mui-row mui-row-board ">
+								              	  	   <div class="mui-col-xs-5 mui-col-sm-5 ">
+								              	  	   	 单据类型:
+								              	  	   </div>
+								              	  	    <div class="mui-col-xs-5 mui-col-sm-5 ">
+								              	  	   	 {{item.djlxmc}}
+								              	  	   </div>
+							              	        </div>
+							              	         <div class="mui-row mui-row-board ">
+								              	  	   <div class="mui-col-xs-5 mui-col-sm-5 ">
+								              	  	   	 提交人:
+								              	  	   </div>
+								              	  	    <div class="mui-col-xs-5 mui-col-sm-5 ">
+								              	  	   	 {{item.psnname}}
+								              	  	   </div>
+							              	        </div>
+							              	         <div class="mui-row mui-row-board ">
+								              	  	   <div class="mui-col-xs-5 mui-col-sm-5 ">
+								              	  	   	 报销金额:
+								              	  	   </div>
+								              	  	    <div class="mui-col-xs-5 mui-col-sm-5 ">
+								              	  	   	 {{item.total}}
+								              	  	   </div>
+							              	        </div>
 													
-													</div>
-													<div >
-													<span>单据类型：{{item.billtype}}</span>
-													
-													</div>
-													
-													<div >
-													<span>报销人：{{item.sender}}</span>
-													
-													</div>
-													
-													<div >
-													<span>报销金额：{{item.nmoney}}</span>
-													
-													</div>
 												</div>
-												<div class=" mui-col-xs-4  mui-col-sm-4  mui-text-right mui-card-content-inner mui-bottom ">
+												<div class=" mui-col-xs-4  mui-col-sm-4  mui-text-right mui-card-content-inner mui-bottom " style="margin: 10px auto;">
 													<button class="mui-bg-positive" id={{$index}} onclick="approve({{$index}})">审批</button>
 												</div>
 											</div>

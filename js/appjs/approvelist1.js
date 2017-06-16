@@ -116,7 +116,7 @@ function search(){
 	console.log("search");
 	  var search_sender =document.getElementById("search_sender").value;
 	  var search_dept  =document.getElementById("search_dept").value;
-	  if((search_sender==null&&search_sender==undefined&&search_sender=='')||(search_dept==null&&search_dept==undefined&&search_dept=='')){
+	  if((search_sender==null||search_sender==undefined||search_sender=="")&&(search_dept==null||search_dept==undefined||search_dept=="")){
 	  	   mui.toast("请输入查询条件");
 	  }
 	        param  = new Object();
@@ -168,14 +168,14 @@ function getScreen(maxW, maxH) {
    function approve(data_index){
    	     var approveinfo =applist.applist[data_index];
    	     if(approveinfo){
-   	     	  var _url =getApproveUrl(approveinfo.billtype);
+   	     	  var _url =getApproveUrl(approveinfo.djlxbm);
    	     	         
    	     	        mui.openWindow({
    	     	        	      url:_url,
    	     	        	      id:_url,
    	     	        	       extras:{
    	     	        	       	     billid:approveinfo.billid,
-   	     	        	       	     billtype:approveinfo.billtype
+   	     	        	       	     billtype:approveinfo.djlxbm
    	     	        	       }
    	     	        });
    	     }else{
@@ -186,8 +186,8 @@ function getScreen(maxW, maxH) {
    
    function getApproveUrl(djdl){
    	     switch (djdl){
-   	     	case 'ht':
-   	     	    return 'approve.html';
+   	     	case '2645':
+   	     	    return 'approve_bx.html';
    	     	default:
    	     		return 'approve.html'
    	     }
