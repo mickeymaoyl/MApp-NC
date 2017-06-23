@@ -37,7 +37,7 @@
 })();
 //登录
      function login(username,password,isauto,deviceid){
- 	        mui.post('http://192.168.2.238:8089/mologin',{
+ 	        mui.post('http://123.207.174.97:8089/mologin',{
 				   	   username:username,
 				   	   password:password,
 				   	   deviceid:deviceid
@@ -46,11 +46,17 @@
 				   	      	  //mainPage();
 //				   	      	  _username=username;
 				   	      	  toMain(username);
-				   	      	  
-				   	      	  setLocalData("username",username);
-				   	      	  setLocalData("password",password);
-				   	      	  setLocalData("isauto",isauto);
-				   	      	  setLocalData("uname",data.uname);
+				   	      	  if(isauto){
+					   	      	  setLocalData("username",username);
+					   	      	  setLocalData("password",password);
+					   	      	  setLocalData("isauto",isauto);
+					   	      	  setLocalData("uname",data.rsdata.uname);
+					   	      	  console.log(data.rsdata.uname);
+				   	      	  }else{
+				   	      	  	  setLocalData("username",username);
+				   	      	  	  setLocalData("uname",data.rsdata.uname);
+				   	      	  }
+				   	      	 
 				   	      }else{
 				   	      	  mui.toast("登录失败，请重新输入用户名和密码");
 				   	      	  document.getElementById("account").value='';
@@ -86,4 +92,4 @@
 								}
 							});
 						}, 0);
-		};
+		 };

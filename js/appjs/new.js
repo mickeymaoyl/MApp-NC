@@ -3,17 +3,21 @@ var  news =new Vue({
 	 data:{
 	 	 uname:'施超',
 	 },
-	 created:function(){
+	 ready:function(){
 	 	 initPage();
 	 },
 	 methods:{
-	 	
+	 	  setting:function(){
+	 	  	    mui.openWindow({
+	 	  	    	    url:'setting.html'
+	 	  	    });
+	 	  }
 	 }
 	
 });
 
 window.addEventListener('refresh',function(e){
-	 console.log(e);
+//	 console.log(e);
 });
 function initPage(){
 	  mui.init();

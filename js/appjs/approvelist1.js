@@ -1,4 +1,4 @@
-var _index =0;
+var _index =1;
 var _tapindex=0;
 var  applist =new Vue({
 	 el:"#applist",
@@ -37,7 +37,7 @@ var  applist =new Vue({
 	 	 	     return ;
 	 	 	 }else {
 	 	 	 	   this.applist=[];
-	 	 	 	   _index=0;
+	 	 	 	   _index=1;
 	 	 	 	   queryApproveList(getDjdl(index),this);
 	 	 	 	   _tapindex=index;
 //	 	 	 	   returnhead();
@@ -64,14 +64,14 @@ var  applist =new Vue({
 });
        
 function queryApproveList (_djdl,self){
- 	
+// 	   console.log('#####'+self+"#####"+_djdl+"#####"+_index);
 	   var param  = new Object ();
 	   param.billtype =_djdl;
 	   param.index =_index;
 	   if(mui.os.plus){
 	   	
 	   	   param.username=plus.storage.getItem("username");
-	   	   console.log(param.username);
+//	   	   console.log(param.username);
 	   }else{
 	   	   param.username=localStorage.getItem("username");
 	   	   
@@ -92,7 +92,7 @@ function queryApproveList (_djdl,self){
 }
 
 function getDjdl(index){
-	console.log("getDjdl");
+//	console.log("getDjdl");
 	  if(index==0)
 	     return 'all';
 	  else if(index==1)
@@ -106,14 +106,24 @@ function getDjdl(index){
 	  
 }
 
-window.addEventListener('refresh',function (e){
+window.addEventListener('refresh1',function (e){
+	console.log("列表开始刷新了");
+	_index=1;
+	applist.applist=[];
+//	   console.log(applist.applist.size);
+	   queryApproveList(getDjdl(_tapindex),applist);
 	   
+	   if(mui.os.plus){
+	   	    var  mainWB =  plus.webview.getWebviewById("main");
+	   	    mui.fire(mainWB,'refresh1');
+	   }
+//	   console.log(applist.size);
 });
 
 
 
 function search(){
-	console.log("search");
+//	console.log("search");
 	  var search_sender =document.getElementById("search_sender").value;
 	  var search_dept  =document.getElementById("search_dept").value;
 	  if((search_sender==null||search_sender==undefined||search_sender=="")&&(search_dept==null||search_dept==undefined||search_dept=="")){
@@ -123,7 +133,7 @@ function search(){
 			param.state='F';
 			param.billtype=getDjdl(_tapindex);
 			
-			param.index=0;
+			param.index=1;
 			param.sender=search_sender;
 			param.dept=search_dept;
 			if(mui.os.plus){
@@ -169,13 +179,16 @@ function getScreen(maxW, maxH) {
    	     var approveinfo =applist.applist[data_index];
    	     if(approveinfo){
    	     	  var _url =getApproveUrl(approveinfo.djlxbm);
-   	     	         
+// 	     	        console.log(_url);
+// 	     	        console.log(approveinfo.djlxbm);
+// 	     	        console.log(approveinfo.billid);
    	     	        mui.openWindow({
    	     	        	      url:_url,
    	     	        	      id:_url,
    	     	        	       extras:{
    	     	        	       	     billid:approveinfo.billid,
-   	     	        	       	     billtype:approveinfo.djlxbm
+   	     	        	       	     billtype:approveinfo.djlxbm,
+   	     	        	       	     state:'N'
    	     	        	       }
    	     	        });
    	     }else{
@@ -186,8 +199,26 @@ function getScreen(maxW, maxH) {
    
    function getApproveUrl(djdl){
    	     switch (djdl){
+   	     	case '2641':
+   	     	    return 'approve_bx.html';
+   	     	case '2642':
+   	     	    return 'approve_bx.html';
    	     	case '2645':
    	     	    return 'approve_bx.html';
+   	     	case '2646':
+   	     	    return 'approve_bx.html';
+   	     	case '2644':
+   	     	    return 'approve_bx.html';
+   	     	case '264X-1':
+   	     	    return 'approve_bx.html';
+   	     	case '264X-':
+   	     	    return 'approve_bx.html';
+   	     	case 'F3-1':
+   	     	     return 'approve_yf.html';
+   	     	case '2346':
+   	     	     return 'approve_yf.html';
+   	     	case 'D3':
+   	     	     return 'approve_yf.html';
    	     	default:
    	     		return 'approve.html'
    	     }

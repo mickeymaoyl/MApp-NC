@@ -42,105 +42,123 @@
 			
 	              <div id ="billhead" class=" mui-card mui-content-padded">
 	              	  <div class="mui-row mui-row-board">
-	              	  	   <div class="mui-bt mui-col-xs-3 mui-col-sm-3 ">
+	              	  	   <div class="mui-bt mui-col-xs-6 mui-col-sm-3 ">
 	              	  	   	 公司:
 	              	  	   </div>
-	              	  	    <div class="mui-col-xs-3 mui-col-sm-3 ">
-	              	  	   	 {{appinfo.gsmc}}
+	              	  	    <div class="mui-col-xs-6 mui-col-sm-9 ">
+	              	  	   	 {{appinfo.dwmc}}
 	              	  	   </div>
-	              	  	   <div class="mui-bt mui-col-xs-3 mui-col-sm-3 ">
+	              	  	   
+	              	  </div>
+	              	  <div class="mui-row mui-row-board">
+	              	  	   
+	              	  	   <div class="mui-bt mui-col-xs-6 mui-col-sm-3 ">
 	              	  	   	 报销单据号:
 	              	  	   </div>
-	              	  	    <div class="mui-col-xs-3 mui-col-sm-3 ">
-	              	  	   	 {{appinfo.fklxmc}}
+	              	  	    <div class="mui-col-xs-6 mui-col-sm-9 ">
+	              	  	   	 {{appinfo.billno}}
 	              	  	   </div>
 	              	  </div>
+	              	  
 	              <!--</div>-->
 	              <!--<div class="mui-card  mui-content-padded">-->
 	              	  <div class="mui-row mui-row-board">
-	              	  	   <div class="mui-bt mui-col-xs-3 mui-col-sm-3 ">
+	              	  	   <div class="mui-bt mui-col-xs-6 mui-col-sm-3 ">
 	              	  	   	 报销单类型:
 	              	  	   </div>
-	              	  	    <div class="mui-col-xs-3 mui-col-sm-3 ">
-	              	  	   	 {{appinfo.htbm}}
+	              	  	    <div class="mui-col-xs-6 mui-col-sm-3 ">
+	              	  	   	 {{appinfo.djlxmc}}
 	              	  	   </div>
-	              	  	   <div class="mui-bt mui-col-xs-3 mui-col-sm-3 ">
+	              	  	   <div class="mui-bt mui-col-xs-6 mui-col-sm-3 ">
 	              	  	   	 单据日期:
 	              	  	   </div>
-	              	  	    <div class="mui-col-xs-3 mui-col-sm-3 ">
-	              	  	   	 {{appinfo.htmc}}
+	              	  	    <div class="mui-col-xs-6 mui-col-sm-3 ">
+	              	  	   	 {{appinfo.djrq}}
 	              	  	   </div>
 	              	  </div>
 	              <!--</div>-->
 	              <!--<div class="mui-card mui-content-padded">-->
 	              	  <div class="mui-row mui-row-board">
-	              	  	   <div class=" mui-bt mui-col-xs-3 mui-col-sm-3 ">
+	              	  	   <div class=" mui-bt mui-col-xs-6 mui-col-sm-3 ">
 	              	  	   	 报销合计金额:
 	              	  	   </div>
-	              	  	    <div class="mui-col-xs-3 mui-col-sm-3 ">
-	              	  	   	 {{appinfo.htqdrq}}
+	              	  	    <div class="mui-col-xs-6 mui-col-sm-3 ">
+	              	  	   	 {{appinfo.total}}
 	              	  	   </div>
-	              	  	   <div class="mui-bt mui-col-xs-3 mui-col-sm-3 ">
+	              	  	   <div class="mui-bt mui-col-xs-6 mui-col-sm-3 ">
 	              	  	   	 冲借款原币金额:
 	              	  	   </div>
-	              	  	    <div class="mui-col-xs-3 mui-col-sm-3 ">
-	              	  	   	 {{appinfo.jhsxrq}}
+	              	  	    <div class="mui-col-xs-6 mui-col-sm-3 ">
+	              	  	   	 {{appinfo.cjkybje}}
 	              	  	   </div>
 	              	  </div>
 	              <!--</div>-->
 	              <!--<div class="mui-card mui-content-padded">-->
 	              	  <div class="mui-row mui-row-board">
-	              	  	   <div class="mui-bt mui-col-xs-3 mui-col-sm-3 ">
+	              	  	   <div class="mui-bt mui-col-xs-6 mui-col-sm-3 ">
 	              	  	   	 冲借款原币金额:
 	              	  	   </div>
-	              	  	    <div class="mui-col-xs-3 mui-col-sm-3 ">
-	              	  	   	 {{appinfo.jhjzrq}}
+	              	  	    <div class="mui-col-xs-6 mui-col-sm-3 ">
+	              	  	   	 {{appinfo.hkybje}}
 	              	  	   </div>
-	              	  	   <div class="mui-bt mui-col-xs-3 mui-col-sm-3 ">
+	              	  	
+	              	  </div>
+	              	  <div class="mui-row mui-row-board" v-if="appinfo.chry">
+	      
+	              	  	   <div class="mui-bt mui-col-xs-6 mui-col-sm-3 " >
 	              	  	   	 出差人员:
 	              	  	   </div>
-	              	  	    <div class="mui-col-xs-3 mui-col-sm-3 ">
-	              	  	   	 {{appinfo.gys1}}
+	              	  	    <div class="mui-col-xs-6 mui-col-sm-9 " >
+	              	  	   	 {{appinfo.chry}}
 	              	  	   </div>
 	              	  </div>
 	              <!--</div>-->
 	              <!--<div class="mui-card mui-content-padded">-->
 	              	  <div class="mui-row mui-row-board">
-	              	  	   <div class="mui-bt mui-col-xs-3 mui-col-sm-3 ">
+	              	  	   <div class="mui-bt mui-col-xs-6 mui-col-sm-3 ">
 	              	  	   	 报销部门:
 	              	  	   </div>
-	              	  	    <div class="mui-col-xs-3 mui-col-sm-3 " >
-	              	  	   	 {{appinfo.gys2}}
+	              	  	    <div class="mui-col-xs-6 mui-col-sm-3 " >
+	              	  	   	 {{appinfo.bxbmmc}}
 	              	  	   </div>
-	              	  	   <div class="mui-bt mui-col-xs-3 mui-col-sm-3 ">
+	              	  	   <div class="mui-bt mui-col-xs-6 mui-col-sm-3 ">
 	              	  	   	 报销人:
 	              	  	   </div>
-	              	  	    <div class="mui-col-xs-3 mui-col-sm-3 " >
-	              	  	   	 {{appinfo.gys3}}
+	              	  	    <div class="mui-col-xs-6 mui-col-sm-3 " >
+	              	  	   	 {{appinfo.bxrmc}}
 	              	  	   </div>
 	              	  </div>
 	             
+	              	  <!--<div class="mui-row mui-row-board" >
+	              	  	  <div class="mui-bt mui-col-xs-6 mui-col-sm-3 ">
+	              	  	   	 报销事项说明:
+	              	  	   </div>
+	              	  	    <div class="mui-col-xs-6 mui-col-sm-3 " >
+	              	  	   	 {{appinfo.bxsxsm}}
+	              	  	   </div>
+	              	  	   <div class="mui-bt mui-col-xs-6 mui-col-sm-3 ">
+	              	  	   	 单据状态:
+	              	  	   </div>
+	              	  	    <div class="mui-col-xs-6 mui-col-sm-3 " >
+	              	  	   	 {{appinfo.djzt}}
+	              	  	   </div>
+	              	  </div>-->
 	              	  <div class="mui-row mui-row-board" >
 	              	  	  <div class="mui-bt mui-col-xs-3 mui-col-sm-3 ">
 	              	  	   	 报销事项说明:
 	              	  	   </div>
-	              	  	    <div class="mui-col-xs-3 mui-col-sm-3 " >
-	              	  	   	 {{appinfo.gys3}}
+	              	  	    <div class="mui-col-xs-9 mui-col-sm-9 " >
+	              	  	   	 {{appinfo.bxsxsm}}
 	              	  	   </div>
-	              	  	   <div class="mui-bt mui-col-xs-3 mui-col-sm-3 ">
-	              	  	   	 单据状态:
-	              	  	   </div>
-	              	  	    <div class="mui-col-xs-3 mui-col-sm-3 " >
-	              	  	   	 {{appinfo.gys3}}
-	              	  	   </div>
+	              	  	   
 	              	  </div>
 	              	  <div class="mui-row mui-row-board">
 	              	  	  
-	              	  	   <div class="mui-bt mui-col-xs-3 mui-col-sm-3 ">
+	              	  	   <div class="mui-bt mui-col-xs-6 mui-col-sm-3 ">
 	              	  	   	 扫描件名称:
 	              	  	   </div>
-	              	  	    <div class="mui-col-xs-8 mui-col-sm-8 ">
-	              	  	   	 {{appinfo.bz}}
+	              	  	    <div class="mui-col-xs-6 mui-col-sm-9 ">
+	              	  	   	 {{appinfo.smjmc}}
 	              	  	   </div>
 	              	  	   
 	              	  </div>
@@ -149,7 +167,7 @@
 	              	  	   <div class="mui-bt mui-col-xs-3 mui-col-sm-3 ">
 	              	  	   	 备注:
 	              	  	   </div>
-	              	  	    <div class="mui-col-xs-8 mui-col-sm-8 ">
+	              	  	    <div class="mui-col-xs-9 mui-col-sm-9 ">
 	              	  	   	 {{appinfo.bz}}
 	              	  	   </div>
 	              	  	   
@@ -198,14 +216,14 @@
 		                      <li class="mui-table-view-cell mui-collapse">
 		                          <a class="mui-navigate-right" href="#">详细信息</a>
 		                          <!--差旅费报销单-->
-		                          <div class="mui-collapse-content" v-if="appinfo.billtype=='2641'">
-		                             <div id="billbody" class="mui-card mui-card-content" v-for="mxitem in appinfo.appmx">
+		                          <div class="mui-collapse-content" v-if="appinfo.djlxbm=='2641'">
+		                             <div id="billbody" class="mui-card mui-card-content" v-for="mxitem in appinfo.detail">
 			              	                  <div class="mui-row mui-row-board mui-text-center">
 							              	  	   <div class="mui-col-xs-5 mui-col-sm-5 ">
 							              	  	   	 收支项目:
 							              	  	   </div>
 							              	  	    <div class="mui-col-xs-5 mui-col-sm-5 ">
-							              	  	   	 {{mxitem.szxm}}
+							              	  	   	 {{mxitem.szxmmc}}
 							              	  	   </div>
 							              	  </div>
 							              	  <div class="mui-row mui-row-board mui-text-center">
@@ -213,7 +231,7 @@
 							              	  	   	 出发日期:
 							              	  	   </div>
 							              	  	    <div class="mui-col-xs-5 mui-col-sm-5 ">
-							              	  	   	 {{mxitem.szxm}}
+							              	  	   	 {{mxitem.cfrq}}
 							              	  	   </div>
 							              	  </div>
 							              	  <div class="mui-row mui-row-board mui-text-center">
@@ -221,7 +239,7 @@
 							              	  	   	 出发地点:
 							              	  	   </div>
 							              	  	    <div class="mui-col-xs-5 mui-col-sm-5 ">
-							              	  	   	 {{mxitem.ybje}}
+							              	  	   	 {{mxitem.cfdd}}
 							              	  	   </div>
 							              	  </div>
 							              	  <div class="mui-row mui-row-board mui-text-center">
@@ -229,7 +247,7 @@
 							              	  	   	 到达日期:
 							              	  	   </div>
 							              	  	    <div class="mui-col-xs-5 mui-col-sm-5 ">
-							              	  	   	 {{mxitem.fksjjtj}}
+							              	  	   	 {{mxitem.ddrq}}
 							              	  	   </div>
 							              	  </div>
 			                                 <div class="mui-row mui-row-board mui-text-center">
@@ -237,7 +255,7 @@
 							              	  	   	 到达地点:
 							              	  	   </div>
 							              	  	    <div class="mui-col-xs-5 mui-col-sm-5 ">
-							              	  	   	 {{mxitem.fksjjtj}}
+							              	  	   	 {{mxitem.dddd}}
 							              	  	   </div>
 							              	  </div>
 							              	  <div class="mui-row mui-row-board mui-text-center">
@@ -245,7 +263,7 @@
 							              	  	   	 交通工具:
 							              	  	   </div>
 							              	  	    <div class="mui-col-xs-5 mui-col-sm-5 ">
-							              	  	   	 {{mxitem.fksjjtj}}
+							              	  	   	 {{mxitem.jtgj}}
 							              	  	   </div>
 							              	  </div>
 							              	  <div class="mui-row mui-row-board mui-text-center">
@@ -253,7 +271,7 @@
 							              	  	   	 交通费_单据张数:
 							              	  	   </div>
 							              	  	    <div class="mui-col-xs-5 mui-col-sm-5 ">
-							              	  	   	 {{mxitem.fksjjtj}}
+							              	  	   	 {{mxitem.jtf_djzs}}
 							              	  	   </div>
 							              	  </div>
 							              	  <div class="mui-row mui-row-board mui-text-center">
@@ -261,7 +279,7 @@
 							              	  	   	 交通费_金额:
 							              	  	   </div>
 							              	  	    <div class="mui-col-xs-5 mui-col-sm-5 mui-badge-red">
-							              	  	   	 {{mxitem.fksjjtj}}
+							              	  	   	 {{mxitem.jtf_je}}
 							              	  	   </div>
 							              	  </div>
 							              	  <div class="mui-row mui-row-board mui-text-center">
@@ -269,7 +287,7 @@
 							              	  	   	 出差天数:
 							              	  	   </div>
 							              	  	    <div class="mui-col-xs-5 mui-col-sm-5 ">
-							              	  	   	 {{mxitem.fksjjtj}}
+							              	  	   	 {{mxitem.ccts}}
 							              	  	   </div>
 							              	  </div>
 							              	  <div class="mui-row mui-row-board mui-text-center">
@@ -277,7 +295,7 @@
 							              	  	   	 出差补贴_金额:
 							              	  	   </div>
 							              	  	    <div class="mui-col-xs-5 mui-col-sm-5 mui-badge-red">
-							              	  	   	 {{mxitem.fksjjtj}}
+							              	  	   	 {{mxitem.ccbt_je}}
 							              	  	   </div>
 							              	  </div>
 							              	  <div class="mui-row mui-row-board mui-text-center">
@@ -285,7 +303,7 @@
 							              	  	   	 住宿人数:
 							              	  	   </div>
 							              	  	    <div class="mui-col-xs-5 mui-col-sm-5 ">
-							              	  	   	 {{mxitem.fksjjtj}}
+							              	  	   	 {{mxitem.zsrs}}
 							              	  	   </div>
 							              	  </div>
 							              	  <div class="mui-row mui-row-board mui-text-center">
@@ -293,7 +311,7 @@
 							              	  	   	 住宿天数:
 							              	  	   </div>
 							              	  	    <div class="mui-col-xs-5 mui-col-sm-5 ">
-							              	  	   	 {{mxitem.fksjjtj}}
+							              	  	   	 {{mxitem.zsts}}
 							              	  	   </div>
 							              	  </div>
 							              	  <div class="mui-row mui-row-board mui-text-center">
@@ -301,7 +319,7 @@
 							              	  	   	 住宿费_金额:
 							              	  	   </div>
 							              	  	    <div class="mui-col-xs-5 mui-col-sm-5 mui-badge-red">
-							              	  	   	 {{mxitem.fksjjtj}}
+							              	  	   	 {{mxitem.zsf_je}}
 							              	  	   </div>
 							              	  </div>
 							              	  <div class="mui-row mui-row-board mui-text-center">
@@ -309,21 +327,21 @@
 							              	  	   	 报销金额:
 							              	  	   </div>
 							              	  	    <div class="mui-col-xs-5 mui-col-sm-5 mui-badge-red">
-							              	  	   	 {{mxitem.fksjjtj}}
+							              	  	   	 {{mxitem.bxje}}
 							              	  	   </div>
 							              	  </div>
 		                         		 </div>
 		                          </div>
 		                           
 		                           <!--1.	车船费用报销单-->
-		                          <div class="mui-collapse-content" v-if="appinfo.billtype=='2642'||appinfo.billtype=='F-01'">
-		                             <div id="billbody" class="mui-card mui-card-content" v-for="mxitem in appinfo.appmx">
+		                          <div class="mui-collapse-content" v-if="appinfo.djlxbm=='2642'||appinfo.djlxbm=='F-01'">
+		                             <div id="billbody" class="mui-card mui-card-content" v-for="mxitem in appinfo.detail">
 			              	                <div class="mui-row mui-row-board mui-text-center">
 							              	  	   <div class="mui-col-xs-5 mui-col-sm-5 ">
 							              	  	   	 收支项目:
 							              	  	   </div>
 							              	  	    <div class="mui-col-xs-5 mui-col-sm-5 ">
-							              	  	   	 {{mxitem.szxm}}
+							              	  	   	 {{mxitem.szxmmc}}
 							              	  	   </div>
 							              	  </div>
 							              	  <div class="mui-row mui-row-board mui-text-center">
@@ -331,7 +349,7 @@
 							              	  	   	 事由:
 							              	  	   </div>
 							              	  	    <div class="mui-col-xs-5 mui-col-sm-5 ">
-							              	  	   	 {{mxitem.szxm}}
+							              	  	   	 {{mxitem.sy}}
 							              	  	   </div>
 							              	  </div>
 							              	  <div class="mui-row mui-row-board mui-text-center">
@@ -339,7 +357,7 @@
 							              	  	   	 报销金额:
 							              	  	   </div>
 							              	  	    <div class="mui-col-xs-5 mui-col-sm-5 ">
-							              	  	   	 {{mxitem.ybje}}
+							              	  	   	 {{mxitem.bxje}}
 							              	  	   </div>
 							              	  </div>
 							              	  <div class="mui-row mui-row-board mui-text-center">
@@ -347,7 +365,7 @@
 							              	  	   	 车船号:
 							              	  	   </div>
 							              	  	    <div class="mui-col-xs-5 mui-col-sm-5 ">
-							              	  	   	 {{mxitem.fksjjtj}}
+							              	  	   	 {{mxitem.cch}}
 							              	  	   </div>
 							              	  </div>
 			           
@@ -357,14 +375,14 @@
 		                    
 		                        <!--招待费报销
                                 -->
-		                         <div class="mui-collapse-content" v-if="appinfo.billtype=='2645'">
-		                             <div id="billbody" class="mui-card mui-card-content" v-for="mxitem in appinfo.appmx">
+		                         <div class="mui-collapse-content" v-if="appinfo.djlxbm=='2645'">
+		                             <div id="billbody" class="mui-card mui-card-content" v-for="mxitem in appinfo.detail">
 			              	                <div class="mui-row mui-row-board mui-text-center">
 							              	  	   <div class="mui-col-xs-5 mui-col-sm-5 ">
 							              	  	   	 收支项目:
 							              	  	   </div>
 							              	  	    <div class="mui-col-xs-5 mui-col-sm-5 ">
-							              	  	   	 {{mxitem.szxm}}
+							              	  	   	 {{mxitem.szxmmc}}
 							              	  	   </div>
 							              	  </div>
 							              	  <div class="mui-row mui-row-board mui-text-center">
@@ -372,7 +390,7 @@
 							              	  	   	 事由:
 							              	  	   </div>
 							              	  	    <div class="mui-col-xs-5 mui-col-sm-5 ">
-							              	  	   	 {{mxitem.szxm}}
+							              	  	   	 {{mxitem.sy}}
 							              	  	   </div>
 							              	  </div>
 							              	  <div class="mui-row mui-row-board mui-text-center">
@@ -380,7 +398,7 @@
 							              	  	   	 报销金额:
 							              	  	   </div>
 							              	  	    <div class="mui-col-xs-5 mui-col-sm-5 ">
-							              	  	   	 {{mxitem.ybje}}
+							              	  	   	 {{mxitem.bxje}}
 							              	  	   </div>
 							              	  </div>
 							              	  <div class="mui-row mui-row-board mui-text-center">
@@ -388,7 +406,7 @@
 							              	  	   	 开票单位:
 							              	  	   </div>
 							              	  	    <div class="mui-col-xs-5 mui-col-sm-5 ">
-							              	  	   	 {{mxitem.fksjjtj}}
+							              	  	   	 {{mxitem.kpdw}}
 							              	  	   </div>
 							              	  </div>
 			           
@@ -398,14 +416,14 @@
 		                         
 		                        <!--会议费报销单 后勤保障费报销单 qita
                                 -->
-                                 <div class="mui-collapse-content" v-if="appinfo.billtype=='2646'||appinfo.billtype=='264X-'||appinfo.billtype=='264X-1'">
-		                             <div id="billbody" class="mui-card mui-card-content" v-for="mxitem in appinfo.appmx">
+                                 <div class="mui-collapse-content" v-if="appinfo.djlxbm=='2646'||appinfo.djlxbm=='264X-'||appinfo.djlxbm=='264X-1'">
+		                             <div id="billbody" class="mui-card mui-card-content" v-for="mxitem in appinfo.detail">
 			              	                <div class="mui-row mui-row-board mui-text-center">
 							              	  	   <div class="mui-col-xs-5 mui-col-sm-5 ">
 							              	  	   	 收支项目:
 							              	  	   </div>
 							              	  	    <div class="mui-col-xs-5 mui-col-sm-5 ">
-							              	  	   	 {{mxitem.szxm}}
+							              	  	   	 {{mxitem.szxmmc}}
 							              	  	   </div>
 							              	  </div>
 							              	  <div class="mui-row mui-row-board mui-text-center">
@@ -413,7 +431,7 @@
 							              	  	   	 事由:
 							              	  	   </div>
 							              	  	    <div class="mui-col-xs-5 mui-col-sm-5 ">
-							              	  	   	 {{mxitem.szxm}}
+							              	  	   	 {{mxitem.sy}}
 							              	  	   </div>
 							              	  </div>
 							              	  <div class="mui-row mui-row-board mui-text-center">
@@ -421,7 +439,7 @@
 							              	  	   	 报销金额:
 							              	  	   </div>
 							              	  	    <div class="mui-col-xs-5 mui-col-sm-5 ">
-							              	  	   	 {{mxitem.ybje}}
+							              	  	   	 {{mxitem.bxje}}
 							              	  	   </div>
 							              	  </div>
 							              	  <div class="mui-row mui-row-board mui-text-center">
@@ -429,7 +447,7 @@
 							              	  	   	 客商:
 							              	  	   </div>
 							              	  	    <div class="mui-col-xs-5 mui-col-sm-5 ">
-							              	  	   	 {{mxitem.fksjjtj}}
+							              	  	   	 {{mxitem.ks}}
 							              	  	   </div>
 							              	  </div>
 			           
@@ -438,14 +456,14 @@
 		                          </div>
 		                         <!--固定资产报销单
                                  -->
-		                         <div class="mui-collapse-content" v-if="appinfo.billtype=='2644'">
-		                             <div id="billbody" class="mui-card mui-card-content" v-for="mxitem in appinfo.appmx">
+		                         <div class="mui-collapse-content" v-if="appinfo.djlxbm=='2644'">
+		                             <div id="billbody" class="mui-card mui-card-content" v-for="mxitem in appinfo.detail">
 			              	                <div class="mui-row mui-row-board mui-text-center">
 							              	  	   <div class="mui-col-xs-5 mui-col-sm-5 ">
 							              	  	   	 收支项目:
 							              	  	   </div>
 							              	  	    <div class="mui-col-xs-5 mui-col-sm-5 ">
-							              	  	   	 {{mxitem.szxm}}
+							              	  	   	 {{mxitem.szxmmc}}
 							              	  	   </div>
 							              	  </div>
 							              	  <div class="mui-row mui-row-board mui-text-center">
@@ -453,7 +471,7 @@
 							              	  	   	 资产名称:
 							              	  	   </div>
 							              	  	    <div class="mui-col-xs-5 mui-col-sm-5 ">
-							              	  	   	 {{mxitem.szxm}}
+							              	  	   	 {{mxitem.zcmc}}
 							              	  	   </div>
 							              	  </div>
 							              	  <div class="mui-row mui-row-board mui-text-center">
@@ -461,7 +479,7 @@
 							              	  	   	 品牌:
 							              	  	   </div>
 							              	  	    <div class="mui-col-xs-5 mui-col-sm-5 ">
-							              	  	   	 {{mxitem.ybje}}
+							              	  	   	 {{mxitem.pp}}
 							              	  	   </div>
 							              	  </div>
 							              	  <div class="mui-row mui-row-board mui-text-center">
@@ -469,7 +487,7 @@
 							              	  	   	 规格型号:
 							              	  	   </div>
 							              	  	    <div class="mui-col-xs-5 mui-col-sm-5 ">
-							              	  	   	 {{mxitem.fksjjtj}}
+							              	  	   	 {{mxitem.ggxh}}
 							              	  	   </div>
 							              	  </div>
 							              	  <div class="mui-row mui-row-board mui-text-center">
@@ -477,7 +495,7 @@
 							              	  	   	 单价:
 							              	  	   </div>
 							              	  	    <div class="mui-col-xs-5 mui-col-sm-5 ">
-							              	  	   	 {{mxitem.fksjjtj}}
+							              	  	   	 {{mxitem.dj}}
 							              	  	   </div>
 							              	  </div>
 							              	  <div class="mui-row mui-row-board mui-text-center">
@@ -485,7 +503,7 @@
 							              	  	   	 数量:
 							              	  	   </div>
 							              	  	    <div class="mui-col-xs-5 mui-col-sm-5 ">
-							              	  	   	 {{mxitem.fksjjtj}}
+							              	  	   	 {{mxitem.sl}}
 							              	  	   </div>
 							              	  </div>
 							              	  <div class="mui-row mui-row-board mui-text-center">
@@ -493,7 +511,7 @@
 							              	  	   	 报销金额:
 							              	  	   </div>
 							              	  	    <div class="mui-col-xs-5 mui-col-sm-5 ">
-							              	  	   	 {{mxitem.fksjjtj}}
+							              	  	   	 {{mxitem.bxje}}
 							              	  	   </div>
 							              	  </div>
 							              	  <div class="mui-row mui-row-board mui-text-center">
@@ -501,7 +519,7 @@
 							              	  	   	 供应商:
 							              	  	   </div>
 							              	  	    <div class="mui-col-xs-5 mui-col-sm-5 ">
-							              	  	   	 {{mxitem.fksjjtj}}
+							              	  	   	 {{mxitem.gys}}
 							              	  	   </div>
 							              	  </div>
 			           
@@ -521,14 +539,14 @@
 		                      <li class="mui-table-view-cell mui-collapse">
 		                          <a class="mui-navigate-right" href="#">审批情况</a>
 		                          <div class="mui-collapse-content">
-		                             <div id="billbody" class="mui-card mui-card-content" v-for="spitem in appinfo.appsp">
+		                             <div id="billbody" class="mui-card mui-card-content" v-for="spitem in appinfo.workflow">
 			              	  
 							              	  <div class="mui-row mui-row-board mui-text-center">
 							              	  	   <div class="mui-col-xs-5 mui-col-sm-5 ">
 							              	  	   	 审批人:
 							              	  	   </div>
 							              	  	    <div class="mui-col-xs-5 mui-col-sm-5 ">
-							              	  	   	 {{spitem.spr}}
+							              	  	   	 {{spitem.checkname}}
 							              	  	   </div>
 							              	  </div>
 							              	  <div class="mui-row mui-row-board mui-text-center">
@@ -536,7 +554,7 @@
 							              	  	   	 审批情况:
 							              	  	   </div>
 							              	  	    <div class="mui-col-xs-5 mui-col-sm-5 ">
-							              	  	   	 {{spitem.spqk}}
+							              	  	   	 {{spitem.checknote}}
 							              	  	   </div>
 							              	  </div>
 							              	  <div class="mui-row mui-row-board mui-text-center">
@@ -544,7 +562,7 @@
 							              	  	   	 审批日期:
 							              	  	   </div>
 							              	  	    <div class="mui-col-xs-5 mui-col-sm-5 ">
-							              	  	   	 {{spitem.sprq}}
+							              	  	   	 {{spitem.dealdate}}
 							              	  	   </div>
 							              	  </div>
 			              
@@ -606,10 +624,10 @@
 		                  	 </div>
 		                  	 <div class="mui-row mui-text-center" style="padding-bottom: 10px;">
 		                  	 	 <div class="mui-col-xs-6 mui-col-sm-6">
-		                  	 	 	   <button type="button" class="mui-btn mui-btn-blue" style="width: 100px;">同意</button>
+		                  	 	 	   <button type="button" class="mui-btn mui-btn-blue" style="width: 100px;" v-on:tap="approve(1)">同意</button>
 		                  	 	 </div>
 		                  	 	  <div class="mui-col-xs-6 mui-col-sm-6">
-		                  	 	 	   <button type="button" class="mui-btn mui-btn-red" style="width: 100px;">不同意</button>
+		                  	 	 	   <button type="button" class="mui-btn mui-btn-red" style="width: 100px;" v-on:tap="approve(2)">不同意</button>
 		                  	 	 </div>
 		                  	 </div>
 		                  	 

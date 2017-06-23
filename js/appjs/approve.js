@@ -6,22 +6,74 @@ var  approve =new Vue({
 	 	appinfo:{}
 	 },
 	 ready:function(){
-//	 	console.log("ffffffff");
 	 	initPage();
 	 	
+	 
 	 },
 	 methods:{
 	 	  openFj:function(src){
 	 	  	  console.log(this.appinfo.billid);
 	 	  	  openFJ(this.appinfo.billid,src);
+	 	  },
+	 	  approve:function(billstate){
+	 	  	   console.log(billstate);
+	 	  	   var appmsg =$("textarea").val();
+	 	  	   if(appmsg==null||appmsg==''||appmsg==undefined){
+	 	  	   	    mui.toast("请填写审批意见");
+	 	  	   	    return ;
+	 	  	   }
+	 	  	   
+	 	  	   var btnArray = ['否', '是'];
+	 	  	   var title =billstate==0?'确认同意':'确认不同意';
+                mui.confirm('确认审批？', '', btnArray, function(e) {
+                    if (e.index == 1) {
+                        approvebill(billstate,appmsg);
+                    } else {
+                          console.log("点击了否");
+                    }
+                })
+	 	  	      
 	 	  }
 	 }
 	
 });
 
+function approvebill(billstate,comment){
+	    var param =new Object();
+	    param.billid=approve.appinfo.billid;
+	    param.billtype=approve.appinfo.djlxbm;
+	    param.billno=approve.appinfo.billno;
+	    param.approvers=getPsncode();
+	    param.state=billstate;
+	    param.appmsg=comment;
+	    sendUrlCmd(this,'wxApprove','approve',param,afterApprove);
+	    
+}
+function afterApprove(data){
+	if(data.returnCode=='Success'){
+		   setTimeout(function(){
+		   	mui.toast("审批成功");
+		    mui.back();
+		   }
+		   ,1500);
+		  
+	}else{
+		  mui.toast(data.returnMsg);
+	}
+}
 
 function initPage(){
-	  mui.init();
+	  mui.init({
+	  	
+	  		beforeback:function(){
+			  	if(mui.os.plus){
+					var list = plus.webview.currentWebview().opener();
+//					console.log("审批界面回退");
+				   //触发列表界面的自定义事件（refresh）,从而进行数据刷新  
+					mui.fire(list, 'refresh1');  
+				}
+			}
+	  });
 	  if(mui.os.plus){
 	  mui.plusReady(function(){
 	  	    //如果有参数 
@@ -29,7 +81,8 @@ function initPage(){
 	  	    
 	  	    var  billtype =curWB.billtype;
 	  	    var  billid=curWB.billid;
-	  	   console.log(billid+"@@@@"+billtype);
+	  	    approve.state=curWB.state;
+	  	    
 	  	    queryApproveInfo(billtype,billid);
 	  	    mui(".mui-scroll-wrapper").scroll({
  				deceleration:0.0006,
@@ -38,7 +91,6 @@ function initPage(){
 			});
 	  });
 	  }else{
-//	  	queryApproveInfo();
 	  	 mui.ready(function(){
 	  	 	mui(".mui-scroll-wrapper").scroll({
  				deceleration:0.0006,
@@ -54,17 +106,26 @@ function initPage(){
 	  }
 }
 
+function getPsncode(){
+	  if(mui.os.plus)
+	     return  plus.storage.getItem("username");
+	  else
+	  return localStorage.getItem("username");
+}
 
 function queryApproveInfo(billtype,billid){
 	var param  =new Object();
-	param.billtype=billtype||'2645';
-	param.billid=billid;
+	param.billtype=billtype||'2644';
+	param.billid=billid||'1003AA1000000000ENS4';
 	sendUrlCmd(this,"wxApprove","queryappinfo",param,setApproveInfot);
 }
 
 
 function setApproveInfot(data){
-	approve.appinfo=data;
+	approve.appinfo=data.rsdata;
+	var _state =getHttpParams('state');
+	if(_state)
+	   approve.state=_state;
 }
 
 

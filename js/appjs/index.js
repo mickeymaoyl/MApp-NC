@@ -3,7 +3,12 @@
   var  _deviceid='test';
   var  _isauto =false;
   (function (){
-  	  mui.init();
+  	  mui.init({
+  	  		keyEventBind: {
+      		  backbutton: true , //关闭back按键监听
+//    		  meunbutton:false
+    			}}
+  	  	);
   	  if(mui.os.plus){
 	      mui.plusReady(function(){
 	   	        _username=plus.storage.getItem("username");
@@ -11,6 +16,28 @@
 	   	        _isauto =plus.storage.getItem("isauto");
 	   	        _deviceid=plus.device.uuid;
 	   	        login(_username,_password,_isauto);
+	   	        
+	   	        
+	   	         var first = null;  
+				            plus.key.addEventListener('backbutton', function(){  
+				                //首次按键，提示‘再按一次退出应用’  
+				                if(!first){  
+				                    first = new Date().getTime();
+				                    console.log(first);
+				                    mui.toast('再按一次退出应用1');  
+				                    setTimeout(function(){  
+				                        first = null;  
+				                    },2000);  
+				                } else {  
+				                    if(new Date().getTime() - first < 2000){  
+				                        plus.runtime.quit(); 
+				                    }  
+				                }  
+				            }, true);  
+	      			mui.back=function(){
+//	      				     console.log("ccccc");
+	      			}
+	   	        
 	      });
       }else {
               	_username=localStorage.getItem("username");
@@ -23,7 +50,7 @@
   
    function login (username,password,isauto){
    	    if(isauto&&username!=null&&password!=null){
-   	    	       mui.post('http://192.168.2.238:8089/mologin',{
+   	    	       mui.post('http://123.207.174.97:8089/mologin',{
 				   	   username:username,
 				   	   password:password,
 				   	   deviceid:_deviceid

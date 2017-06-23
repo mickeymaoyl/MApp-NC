@@ -18,13 +18,14 @@
 		</style>
 		<script>
 //			if(window.WebSocket){
-//				  var ws =new WebSocket('ws://localhost:8089/websocket/maoyl');
+//				  var ws =new WebSocket('ws://192.168.2.192:8089/websocket/maoyl');
 //				  ws.onopen = function(event){
 //				  	console.log(event);
+//				  	ws.send("ddddd");
 //				  };
-//				  ws.on
+////				  ws.on
 //				  ws.onmessage=function(event){
-//				  	 console.log(event);
+//				  	 console.log(event.data);
 //				  }
 //				  
 //			}
@@ -46,12 +47,13 @@
 			</a>
 			<a class="mui-tab-item"   v-on:tap="tab(2)">
 				 <span class="mui-icon mui-icon-bars" ></span>
-			     <span class="mui-tab-label">待审批</span></a>			
+			     <span class="mui-tab-label">已审批</span></a>			
 		</nav>
 		</div>
 		<div class="mui-content"></div>
 		
 		<script src="js/mui.min.js"></script>
+		<script type="text/javascript" src="js/jquery-1.10.2.min.js" ></script>
 		<script type="text/javascript" src="js/vue.js" ></script>
 		<script type="text/javascript" src="js/vue-mui.js" ></script>
 		<script type="text/javascript" src="js/Ajax.js" ></script>
