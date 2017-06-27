@@ -68,11 +68,23 @@ function createFile(billid,src){
  	       if(filehz=='')
  	          return ;
  	          
- 	       if(filehz=='doc'||filehz=='docx'||filehz=='xls'||filehz=='xlsx'||filehz=='ppt'||filehz=='pptx'||filehz=='pdf')
- 	           plus.runtime.openFile(localUrl);
+ 	       if(filehz=='doc'||filehz=='docx'||filehz=='xls'||filehz=='xlsx'||filehz=='ppt'||filehz=='pptx'||filehz=='pdf'){
+	 	       	  if(mui.os.android){
+		 	           plus.runtime.openFile(localUrl,function(error){
+		 	           	    console.log(error);
+		 	           });
+	 	          }else{
+	 	          	var newurl = plus.io.convertAbsoluteFileSystem(localUrl);
+	 	          	console.log(newurl);
+//	 	          	  mui.openWindow({
+//	 	          	  	  url:newurl
+//	 	          	  });
+                      plus.runtime.openFile(newurl);
+	 	          }
+ 	         }
  	       else if (filehz=='zip'||filehz=='rar'){
  	       	    return ;
- 	       }else if(filehz=='bmp'||filehz=='jpg'||filehz=='png'||filehz=='gif'){
+ 	       }else if(filehz=='bmp'||filehz=='jpg'||filehz=='png'||filehz=='gif'||filehz=='jepg'){
  	       	      mui.openWindow({
    	     	        	      url:'fjimage.html',
    	     	        	      id:'fjimage.html',

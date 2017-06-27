@@ -37,9 +37,9 @@
 })();
 //登录
      function login(username,password,isauto,deviceid){
-     	console.log("ffffsdsdfadf");
-     	      var url ='http://192.168.2.121:8089/mologin';
-   	    	       //var url='http://123.207.174.97:8089/mologin';
+     	//console.log("ffffsdsdfadf");
+     	     // var url ='http://192.168.2.121:8089/mologin';
+   	    	       var url='http://123.207.174.97:8089/mologin';
  	        mui.post(url,{
 				   	   username:username,
 				   	   password:password,
