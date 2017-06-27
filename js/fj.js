@@ -10,6 +10,7 @@ function openFJ(billid,src){
 	 	    	     var url ='_downloads/'+billid+'/'+filename;
 //	 	    	     console.log(url);
 	 	    	 plus.io.resolveLocalFileSystemURL(url,function(entry){
+	 	    	 	    console.log("文件已存在");
 	 	    	 	    var isFile =entry.isFile;
 	 	    	 	    if(isFile){
 	 	    	 	    	       openFile(entry.fullPath);
@@ -44,12 +45,12 @@ function createFile(billid,src){
 	    var filepath='_downloads/'+billid+'/';
 	    console.log(filepath);
 	    console.log(src);
-	    plus.downloader.c
+//	    plus.downloader.c
 	    var dtask = plus.downloader.createDownload( src, {filename:filepath}, function ( d, status ) {
 		// 下载完成
 				if ( status == 200 ) { 
 					var sd_path = plus.io.convertLocalFileSystemURL(d.filename);
-					console.log(sd_path);//
+					console.log("sssss");//
 					//plus.runtime.openFile(d.filename);
 					openFile(sd_path);
 				} else {
@@ -67,7 +68,7 @@ function createFile(billid,src){
  	       if(filehz=='')
  	          return ;
  	          
- 	       if(filehz=='doc'||filehz=='docx'||filehz=='xls'||filehz=='xlsx'||filehz=='ppt'||filehz=='pptx')
+ 	       if(filehz=='doc'||filehz=='docx'||filehz=='xls'||filehz=='xlsx'||filehz=='ppt'||filehz=='pptx'||filehz=='pdf')
  	           plus.runtime.openFile(localUrl);
  	       else if (filehz=='zip'||filehz=='rar'){
  	       	    return ;

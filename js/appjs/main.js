@@ -120,6 +120,7 @@ var  main =new Vue({
   	    	    	   param.username=uid;
   	    	       sendUrlCmd(this,'wxApprove','querynotappnums',param,function(data){
   	    	       	     main.noappnum=data.rsdata.rowCount;
+  	    	       	     console.log( main.noappnum);
   	    	       })
   	    }
   }

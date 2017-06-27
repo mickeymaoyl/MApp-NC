@@ -11,6 +11,20 @@ var  setting =new Vue({
 	 	  logout:function(){
 	 	  	   clearUserInfo();
 	 	  	   login();
+	 	  },
+	 	  clearFj:function(){
+	 	  	    if(mui.os.plus){
+		 	  	    	    plus.io.resolveLocalFileSystemURL( "_downloads/", function( entry ) {
+	                         entry.removeRecursively( function(sucess){
+	                         	  mui.toast("清除成功");
+	                         	  mui.back();
+	                         }, function(error){
+	                         	  console.log(error);
+	                         } );
+				     	}, function ( e ) {
+							console.log( "Resolve file URL failed: " + e.message );
+					 } );
+	 	  	    }
 	 	  }
 	 }
 	

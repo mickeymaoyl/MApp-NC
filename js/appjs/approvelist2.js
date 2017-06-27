@@ -85,6 +85,7 @@ function queryApproveList (_djdl,self){
 	   	        }else{
 	   	            	mui.toast("没有更多数据了");
 	   	        	     mui('#pullrefresh').pullRefresh().endPullupToRefresh(false);
+	   	        	      mui('#pullrefresh').pullRefresh().disablePullupToRefresh();
 	   	        }
 	   });
 }
@@ -99,7 +100,7 @@ function getDjdl(index){
 	  else if(index==3)
 	     return 'bx';
 	  else 
-	     return 'xc';
+	     return 'xz';
 	  
 }
 
@@ -204,6 +205,8 @@ function getScreen(maxW, maxH) {
    	     	     return 'approve_yf.html';
    	     	case 'D3':
    	     	     return 'approve_yf.html';
+   	     	case '6350':
+   	     	     return 'approve_hr.html';
    	     	default:
    	     		return 'approve.html'
    	     }

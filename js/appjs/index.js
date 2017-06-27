@@ -50,7 +50,9 @@
   
    function login (username,password,isauto){
    	    if(isauto&&username!=null&&password!=null){
-   	    	       mui.post('http://123.207.174.97:8089/mologin',{
+   	    	       var url ='http://192.168.2.121:8089/mologin';
+   	    	       //var url='http://123.207.174.97:8089/mologin';
+   	    	       mui.post(url,{
 				   	   username:username,
 				   	   password:password,
 				   	   deviceid:_deviceid
@@ -58,6 +60,7 @@
 				   	      if(data.returnCode=='Success'){
 				   	      	  //mainPage();
 				   	      	  _username=username;
+				   	      	  console.log("ffffffff");
 				   	      	  toMain();
 				   	      }else{
 				   	      	 mui.openWindow('login.html','login');
@@ -92,6 +95,7 @@
          //登录成功后跳转主页面
          function toMain(){
                   	{
+                  		console.log("跳转");
 						setTimeout(function() {
 							mui.openWindow({
 								url:'main.html',

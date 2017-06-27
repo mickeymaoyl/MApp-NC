@@ -288,7 +288,9 @@
 				],
 				"refer": [
 					"approve_bx.html",
-					"approve_yf.html"
+					"approve_yf.html",
+					"approve.html",
+					"approve_hr.html"
 				],
 				"priority": 0
 			},
@@ -308,7 +310,8 @@
 				"refer": [
 					"approve.html",
 					"approve_bx.html",
-					"approve_yf.html"
+					"approve_yf.html",
+					"approve_hr.html"
 				],
 				"priority": 0
 			},
@@ -323,7 +326,8 @@
 					"fonts/mui.ttf",
 					"css/mui.min.css",
 					"js/jquery-1.10.2.min.js",
-					"js/fj.js"
+					"js/fj.js",
+					"css/my.css"
 				],
 				"refer": [
 					"fjimage.html"
@@ -345,7 +349,8 @@
 				"resources": [
 					"js/appjs/approve.js",
 					"js/fj.js",
-					"css/mui.min.css"
+					"css/mui.min.css",
+					"css/my.css"
 				],
 				"refer": [],
 				"priority": 0
@@ -375,7 +380,19 @@
 					"js/mui.min.js",
 					"fonts/mui.ttf",
 					"css/mui.min.css",
-					"js/jquery-1.10.2.min.js"
+					"js/jquery-1.10.2.min.js",
+					"css/my.css"
+				],
+				"refer": [
+					"fjimage.html"
+				],
+				"priority": 0
+			},
+			"approve_hr.html": {
+				"resources": [
+					"js/appjs/approve.js",
+					"css/mui.min.css",
+					"js/fj.js"
 				],
 				"refer": [],
 				"priority": 0

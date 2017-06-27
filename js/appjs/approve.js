@@ -24,8 +24,8 @@ var  approve =new Vue({
 	 	  	   }
 	 	  	   
 	 	  	   var btnArray = ['否', '是'];
-	 	  	   var title =billstate==0?'确认同意':'确认不同意';
-                mui.confirm('确认审批？', '', btnArray, function(e) {
+	 	  	   var title =billstate==1?'确认同意':'确认不同意';
+                mui.confirm(title, '', btnArray, function(e) {
                     if (e.index == 1) {
                         approvebill(billstate,appmsg);
                     } else {
@@ -123,6 +123,7 @@ function queryApproveInfo(billtype,billid){
 
 function setApproveInfot(data){
 	approve.appinfo=data.rsdata;
+	console.log(JSON.stringify(approve.appinfo));
 	var _state =getHttpParams('state');
 	if(_state)
 	   approve.state=_state;

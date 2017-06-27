@@ -25,7 +25,6 @@
 			 	border-bottom:1px solid gainsboro;
 			 	height: 40px;
 			 	 line-height:40px;   
-			 	/*margin: 15px auto;*/
 			 	
 			 }
 			 .mui-bt{
@@ -34,204 +33,134 @@
 			 
 			 .mui-number-color{
 			 	 color: red;
-			 }-->
-		</style>
+			 }
+		</style>-->
 	</head>
 
 	<body id="approve">
 		<header class="mui-bar mui-bar-nav">
 		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-		    <h1 class="mui-title">应付管理</h1>
+		    <h1 class="mui-title">报销管理</h1>
 		</header>
 		<div class="mui-content">
 			
 			
 	              <div id ="billhead" class=" mui-card mui-content-padded">
 	              	  <div class="mui-row mui-row-board">
-	              	  	   <div class="mui-bt mui-col-xs-4 mui-col-sm-3 ">
+	              	  	   <div class="mui-bt mui-col-xs-6 mui-col-sm-3 ">
 	              	  	   	 公司:
 	              	  	   </div>
-	              	  	    <div class="mui-col-xs-8 mui-col-sm-9 ">
+	              	  	    <div class="mui-col-xs-6 mui-col-sm-9 ">
 	              	  	   	 {{appinfo.dwmc}}
 	              	  	   </div>
+	              	  	   
 	              	  </div>
 	              	  <div class="mui-row mui-row-board">
+	              	  	   
 	              	  	   <div class="mui-bt mui-col-xs-6 mui-col-sm-3 ">
-	              	  	   	 付款类型名称:
+	              	  	   	审批单据号:
 	              	  	   </div>
 	              	  	    <div class="mui-col-xs-6 mui-col-sm-9 ">
-	              	  	   	 {{appinfo.djlxmc}}
-	              	  	   </div>
-	              	  </div>
-	              <!--</div>-->
-	              <!--<div class="mui-card  mui-content-padded">-->
-	              	  <div class="mui-row mui-row-board">
-	              	  	   <div class="mui-bt mui-col-xs-4 mui-col-sm-3 ">
-	              	  	   	 单据日期:
-	              	  	   </div>
-	              	  	    <div class="mui-col-xs-8 mui-col-sm-3 ">
-	              	  	   	 {{appinfo.djrq}}
-	              	  	   </div>
-	              	  	   <div class="mui-bt mui-col-xs-4 mui-col-sm-3 ">
-	              	  	   	 付款单位类型:
-	              	  	   </div>
-	              	  	    <div class="mui-col-xs-8 mui-col-sm-3 ">
-	              	  	   	 {{appinfo.fkdwlx}}
+	              	  	   	 {{appinfo.billno}}
 	              	  	   </div>
 	              	  </div>
 	              	  
 	              <!--</div>-->
+	              <!--<div class="mui-card  mui-content-padded">-->
+	              	  <div class="mui-row mui-row-board">
+	              	  	   <div class="mui-bt mui-col-xs-6 mui-col-sm-3 ">
+	              	  	   	 薪资类别:
+	              	  	   </div>
+	              	  	    <div class="mui-col-xs-6 mui-col-sm-9 ">
+	              	  	   	 {{appinfo.xzlbmc}}
+	              	  	   </div>
+	              	  	   <!--<div class="mui-bt mui-col-xs-6 mui-col-sm-3 ">
+	              	  	   	 单据日期:
+	              	  	   </div>
+	              	  	    <div class="mui-col-xs-6 mui-col-sm-3 ">
+	              	  	   	 {{appinfo.djrq}}
+	              	  	   </div>-->
+	              	  </div>
+	              <!--</div>-->
 	              <!--<div class="mui-card mui-content-padded">-->
 	              	  <div class="mui-row mui-row-board">
 	              	  	   <div class=" mui-bt mui-col-xs-6 mui-col-sm-3 ">
-	              	  	   	 付款单位名称:
+	              	  	   	 年度:
 	              	  	   </div>
-	              	  	    <div class="mui-col-xs-6 mui-col-sm-9 ">
-	              	  	   	 {{appinfo.fkdwmc}}
+	              	  	    <div class="mui-col-xs-6 mui-col-sm-3 ">
+	              	  	   	 {{appinfo.nd}}
 	              	  	   </div>
-	              	  	 
-	              	  </div>
-	              	  <div class="mui-row mui-row-board">
-	              	  	   <div class="mui-bt mui-col-xs-4 mui-col-sm-3 ">
-	              	  	   	 付款申请部门:
+	              	  	   <div class="mui-bt mui-col-xs-6 mui-col-sm-3 ">
+	              	  	   	 期间:
 	              	  	   </div>
-	              	  	    <div class="mui-col-xs-8 mui-col-sm-3 ">
-	              	  	   	 {{appinfo.fkbmmc}}
-	              	  	   </div>
-	              	  	   <div class="mui-bt mui-col-xs-4 mui-col-sm-3 ">
-	              	  	   	 业务员:
-	              	  	   </div>
-	              	  	    <div class="mui-col-xs-8 mui-col-sm-3 ">
-	              	  	   	 {{appinfo.ywymc}}
+	              	  	    <div class="mui-col-xs-6 mui-col-sm-3 ">
+	              	  	   	 {{appinfo.qj}}
 	              	  	   </div>
 	              	  </div>
 	              <!--</div>-->
 	              <!--<div class="mui-card mui-content-padded">-->
 	              	  <div class="mui-row mui-row-board">
-	              	  	   
-	              	  	   <div class="mui-bt mui-col-xs-4 mui-col-sm-3 ">
-	              	  	   	 付款金额:
+	              	  	   <div class="mui-bt mui-col-xs-6 mui-col-sm-3 ">
+	              	  	   	 申请人:
 	              	  	   </div>
-	              	  	    <div class="mui-col-xs-8 mui-col-sm-3 mui-number-color">
-	              	  	   	 {{appinfo.fkje}}
+	              	  	    <div class="mui-col-xs-6 mui-col-sm-3 ">
+	              	  	   	 {{appinfo.sqrmc}}
 	              	  	   </div>
-	              	  	    <div class="mui-bt mui-col-xs-4 mui-col-sm-3 ">
-	              	  	   	 审批状态:
+	              	  	   <div class="mui-bt mui-col-xs-6 mui-col-sm-3 ">
+	              	  	   	 申请日期:
 	              	  	   </div>
-	              	  	    <div class="mui-col-xs-8 mui-col-sm-3 " >
-	              	  	   	 {{appinfo.spzt}}
-	              	  	   </div>
-	              	  </div>
-	              <!--</div>-->
-	              <!--<div class="mui-card mui-content-padded">-->
-	              	  <div class="mui-row mui-row-board">
-	              	  	   <div class="mui-bt mui-col-xs-5 mui-col-sm-3 ">
-	              	  	   	 付款事由:
-	              	  	   </div>
-	              	  	    <div class="mui-col-xs-7 mui-col-sm-9 " >
-	              	  	   	 {{appinfo.fksy}}
-	              	  	   </div>              	  	  
-	              	  </div>
-	             
-	              	  <div class="mui-row mui-row-board" v-if="appinfo.djlxbm=='F3-1'">
-	              	  	  <div class="mui-bt mui-col-xs-2 mui-col-sm-2 ">
-	              	  	   	 扫描件名称:
-	              	  	   </div>
-	              	  	    <div class="mui-col-xs-10 mui-col-sm-10 " >
-	              	  	   	 {{appinfo.smjmc}}
-	              	  	   </div>
-	              	  </div>
-	              	  <div class="mui-row mui-row-board">
-	              	  	  
-	              	  	   <div class="mui-bt mui-col-xs-2 mui-col-sm-2 ">
-	              	  	   	 备注:
-	              	  	   </div>
-	              	  	    <div class="mui-col-xs-10 mui-col-sm-10 ">
-	              	  	   	 {{appinfo.bz}}
-	              	  	   </div>
-	              	  	   
-	              	  </div>
-	              </div>
-	              <!--<div id="billbody" class="mui-card mui-card-content">
-
-	              	  <div class="mui-row mui-text-center">
-	              	  	   <div class="mui-col-xs-5 mui-col-sm-5 ">
-	              	  	   	 行号:
-	              	  	   </div>
-	              	  	    <div class="mui-col-xs-5 mui-col-sm-5 ">
-	              	  	   	 1
-	              	  	   </div>
-	              	  </div>
-	              	  <div class="mui-row mui-text-center">
-	              	  	   <div class="mui-col-xs-5 mui-col-sm-5 ">
-	              	  	   	 收支项目:
-	              	  	   </div>
-	              	  	    <div class="mui-col-xs-5 mui-col-sm-5 ">
-	              	  	   	 XXXXXXXXX
-	              	  	   </div>
-	              	  </div>
-	              	  <div class="mui-row mui-text-center">
-	              	  	   <div class="mui-col-xs-5 mui-col-sm-5 ">
-	              	  	   	 原币金额:
-	              	  	   </div>
-	              	  	    <div class="mui-col-xs-5 mui-col-sm-5 mui-badge-red">
-	              	  	   	 1000000.00
-	              	  	   </div>
-	              	  </div>
-	              	  <div class="mui-row mui-text-center">
-	              	  	   <div class="mui-col-xs-5 mui-col-sm-5 ">
-	              	  	   	 付款时间及条件:
-	              	  	   </div>
-	              	  	    <div class="mui-col-xs-5 mui-col-sm-5 ">
-	              	  	   	 合同到期一次性支付
-	              	  	   </div>
-	              	  </div>
-	              </div>-->
+	              	  	    <div class="mui-col-xs-6 mui-col-sm-3 ">
+	              	  	   	 {{appinfo.djrq}}
+	              	  	   </div>	              	  	
+	              	  </div>              	
+	             </div>
 	              <!--
                   	表体信息
                   -->
-		                  <div class="mui-card mui-card-content">
-		                 		 <ul class="mui-table-view">
+		                  <div class="mui-card mui-card-content" >
+		                 	 <ul class="mui-table-view">
 		                      <li class="mui-table-view-cell mui-collapse">
 		                          <a class="mui-navigate-right" href="#">详细信息</a>
-		                          <div class="mui-collapse-content">
+		                          <!--差旅费报销单-->
+		                          <div class="mui-collapse-content" >
 		                             <div id="billbody" class="mui-card mui-card-content" v-for="mxitem in appinfo.detail">
 			              	                  <div class="mui-row mui-row-board mui-text-center">
-							              	  	   <div class="mui-col-xs-4 mui-col-sm-4 ">
-							              	  	   	 摘要:
+							              	  	   <div class="mui-col-xs-5 mui-col-sm-3 ">
+							              	  	   	 人员名称:
 							              	  	   </div>
-							              	  	    <div class="mui-col-xs-8 mui-col-sm-8 ">
-							              	  	   	 {{mxitem.zy}}
+							              	  	    <div class="mui-col-xs-5 mui-col-sm-3 ">
+							              	  	   	 {{mxitem.rymc}}
+							              	  	   </div>
+							              	  	   <div class="mui-col-xs-5 mui-col-sm-3 ">
+							              	  	   	 所在部门:
+							              	  	   </div>
+							              	  	    <div class="mui-col-xs-5 mui-col-sm-3 ">
+							              	  	   	 {{mxitem.szbm}}
 							              	  	   </div>
 							              	  </div>
+							              	 
 							              	  <div class="mui-row mui-row-board mui-text-center">
-							              	  	   <div class="mui-col-xs-5 mui-col-sm-4 ">
-							              	  	   	 收支项目:
+							              	  	   <div class="mui-col-xs-5 mui-col-sm-3 ">
+							              	  	   	 应发合计:
 							              	  	   </div>
-							              	  	    <div class="mui-col-xs-5 mui-col-sm-8 ">
-							              	  	   	 {{mxitem.szxmname}}
+							              	  	    <div class="mui-col-xs-5 mui-col-sm-3 ">
+							              	  	   	 {{mxitem.yfhj}}
 							              	  	   </div>
-							              	  </div>
-							              	  <div class="mui-row mui-row-board mui-text-center">
-							              	  	   <div class="mui-col-xs-5 mui-col-sm-4 ">
-							              	  	   	 原币金额:
+							              	  	   <div class="mui-col-xs-5 mui-col-sm-3 ">
+							              	  	   	 实发合计:
 							              	  	   </div>
-							              	  	    <div class="mui-col-xs-5 mui-col-sm-8 mui-number-color">
-							              	  	   	 {{mxitem.ybje}}
+							              	  	    <div class="mui-col-xs-5 mui-col-sm-3 mui-number-color">
+							              	  	   	 {{mxitem.sfhj}}
 							              	  	   </div>
 							              	  </div>
-							              	  <div class="mui-row mui-row-board mui-text-center">
-							              	  	   <div class="mui-col-xs-4 mui-col-sm-4 ">
-							              	  	   	 合同:
-							              	  	   </div>
-							              	  	    <div class="mui-col-xs-4 mui-col-sm-8 ">
-							              	  	   	 {{mxitem.hth}}
-							              	  	   </div>
-							              	  </div>
-			              
+							              	 
+			                                
 		                         		 </div>
 		                          </div>
-		                          
+		                           
+		                       
+		                        
+		                      
 		                      </li>
 		                      
 		                  </ul>

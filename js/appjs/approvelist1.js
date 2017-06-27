@@ -34,10 +34,14 @@ var  applist =new Vue({
 	 methods:{
 	 	 tabchange:function(index){
 	 	 	 if(_tapindex==index){
+	 	 	 	console.log("点击同一页签");
 	 	 	     return ;
 	 	 	 }else {
+	 	 	 	 
 	 	 	 	   this.applist=[];
 	 	 	 	   _index=1;
+	 	
+	 	 	 	   console.log("tab切换进行刷新");
 	 	 	 	   queryApproveList(getDjdl(index),this);
 	 	 	 	   _tapindex=index;
 //	 	 	 	   returnhead();
@@ -54,6 +58,8 @@ var  applist =new Vue({
 	 	 pullupRefresh :function  (){
 	 		setTimeout(function(){
 	 			mui('#pullrefresh').pullRefresh().endPullupToRefresh() ;
+//	 			mui('#pullrefresh').disablePullupToRefresh();
+                console.log("上拉刷新");
       	 	 	queryApproveList(getDjdl(_tapindex),this.applist);
 			 },500);
 		}
@@ -64,7 +70,7 @@ var  applist =new Vue({
 });
        
 function queryApproveList (_djdl,self){
-// 	   console.log('#####'+self+"#####"+_djdl+"#####"+_index);
+   	   console.log('#####'+self+"#####"+_djdl+"#####"+_index);
 	   var param  = new Object ();
 	   param.billtype =_djdl;
 	   param.index =_index;
@@ -83,10 +89,14 @@ function queryApproveList (_djdl,self){
 					  }
 	   	        		 _index=_index+1;
                      
-	 	 	 	   
+//	 	 	 	   mui('#pullrefresh').pullRefresh().endPullupToRefresh(true);
+                   mui('#pullrefresh').pullRefresh().enablePullupToRefresh();
 	   	        }else{
-	   	            	mui.toast("没有更多数据了");
+//	   	            	mui.toast("没有更多数据了");
 	   	        	     mui('#pullrefresh').pullRefresh().endPullupToRefresh(false);
+	   	        	     mui('#pullrefresh').pullRefresh().disablePullupToRefresh();
+
+
 	   	        }
 	   });
 }
@@ -102,7 +112,7 @@ function getDjdl(index){
 	  else if(index==3)
 	     return 'bx';
 	  else 
-	     return 'xc';
+	     return 'xz';
 	  
 }
 
@@ -219,6 +229,8 @@ function getScreen(maxW, maxH) {
    	     	     return 'approve_yf.html';
    	     	case 'D3':
    	     	     return 'approve_yf.html';
+   	     	case '6350':
+   	     	     return 'approve_hr.html';
    	     	default:
    	     		return 'approve.html'
    	     }
