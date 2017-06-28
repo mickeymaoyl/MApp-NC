@@ -43,14 +43,14 @@ function checkFileHZ(filename){
 
 function createFile(billid,src){
 	    var filepath='_downloads/'+billid+'/';
-	    console.log(filepath);
+//	    console.log(filepath);
 	    console.log(src);
 //	    plus.downloader.c
 	    var dtask = plus.downloader.createDownload( src, {filename:filepath}, function ( d, status ) {
 		// 下载完成
 				if ( status == 200 ) { 
 					var sd_path = plus.io.convertLocalFileSystemURL(d.filename);
-					console.log("sssss");//
+				//	console.log("sssss");//
 					//plus.runtime.openFile(d.filename);
 					openFile(sd_path);
 				} else {
@@ -62,7 +62,7 @@ function createFile(billid,src){
 
 
  function openFile(localUrl){
- 	       console.log(localUrl);
+ 	      // console.log(localUrl);
  	       var filehz =checkFileHZ(localUrl);
  	       
  	       if(filehz=='')

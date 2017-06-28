@@ -81,12 +81,12 @@
 								<div   class="mui-scroll">
 									   <div class="mui-card" v-for="item in applist">
 									   	    <div class="mui-row mui-content-padded">
-												<div class="mui-col-xs-8 mui-col-sm-8">
+												<div class="mui-col-xs-9 mui-col-sm-8">
 													<div class="mui-row mui-row-board ">
-								              	  	   <div class="mui-col-xs-5 mui-col-sm-5 ">
+								              	  	   <div class="mui-col-xs-3 mui-col-sm-5 ">
 								              	  	   	 公司:
 								              	  	   </div>
-								              	  	    <div class="mui-col-xs-5 mui-col-sm-7 ">
+								              	  	    <div class="mui-col-xs-9 mui-col-sm-7 ">
 								              	  	   	 {{item.dwmc}}
 								              	  	   </div>
 							              	        </div>
@@ -94,37 +94,37 @@
 								              	  	   <div class="mui-col-xs-5 mui-col-sm-5 ">
 								              	  	   	 待审批单据号:
 								              	  	   </div>
-								              	  	    <div class="mui-col-xs-5 mui-col-sm-5 ">
+								              	  	    <div class="mui-col-xs-7 mui-col-sm-5 ">
 								              	  	   	 {{item.billno}}
 								              	  	   </div>
 							              	        </div>
 							              	        <div class="mui-row mui-row-board ">
-								              	  	   <div class="mui-col-xs-5 mui-col-sm-5 ">
+								              	  	   <div class="mui-col-xs-3 mui-col-sm-5 ">
 								              	  	   	 单据类型:
 								              	  	   </div>
-								              	  	    <div class="mui-col-xs-5 mui-col-sm-5 ">
+								              	  	    <div class="mui-col-xs-9 mui-col-sm-5 ">
 								              	  	   	 {{item.djlxmc}}
 								              	  	   </div>
 							              	        </div>
 							              	         <div class="mui-row mui-row-board ">
-								              	  	   <div class="mui-col-xs-5 mui-col-sm-5 ">
+								              	  	   <div class="mui-col-xs-3 mui-col-sm-5 ">
 								              	  	   	 制单人:
 								              	  	   </div>
-								              	  	    <div class="mui-col-xs-5 mui-col-sm-5 ">
+								              	  	    <div class="mui-col-xs-9 mui-col-sm-5 ">
 								              	  	   	 {{item.psnname}}
 								              	  	   </div>
 							              	        </div>
 							              	         <div class="mui-row mui-row-board " v-if='item.total>0'>
-								              	  	   <div class="mui-col-xs-5 mui-col-sm-5 ">
+								              	  	   <div class="mui-col-xs-3 mui-col-sm-5 ">
 								              	  	   	 审批金额:
 								              	  	   </div>
-								              	  	    <div class="mui-col-xs-5 mui-col-sm-5 ">
+								              	  	    <div class="mui-col-xs-9 mui-col-sm-5 ">
 								              	  	   	 {{item.total}}
 								              	  	   </div>
 							              	        </div>
 													
 												</div>
-												<div class=" mui-col-xs-4  mui-col-sm-4  mui-text-right mui-card-content-inner mui-bottom " style="margin: 15px auto;">
+												<div class=" mui-col-xs-3  mui-col-sm-4  mui-text-right mui-card-content-inner mui-bottom " style="margin: 15px auto;">
 													<button class="mui-bg-positive" id={{$index}} onclick="approve({{$index}})">查看</button>
 												</div>
 											</div>

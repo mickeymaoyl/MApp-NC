@@ -38,8 +38,8 @@
 //登录
      function login(username,password,isauto,deviceid){
      	//console.log("ffffsdsdfadf");
-     	     // var url ='http://192.168.2.121:8089/mologin';
-   	    	       var url='http://123.207.174.97:8089/mologin';
+     	     // var url ='http://192.168.2.211:9999/mologin';
+   	    	       var url='http://123.207.174.97:9999/mologin';
  	        mui.post(url,{
 				   	   username:username,
 				   	   password:password,
