@@ -50,14 +50,14 @@
   
    function login (username,password,isauto){
    	    if(isauto&&username!=null&&password!=null){
-   	    	console.log("fffffffff");
-   	    	      // var url ='http://192.168.2.211:9999/mologin';
+   	    	       //var url ='http://192.168.2.220:8089/mologin';
    	    	       var url='http://123.207.174.97:9999/mologin';
    	    	       mui.post(url,{
 				   	   username:username,
 				   	   password:password,
 				   	   deviceid:_deviceid
 				   },function(data){
+				   	console.log(JSON.stringify(data));
 				   	      if(data.returnCode=='Success'){
 				   	      	  //mainPage();
 				   	      	  _username=username;

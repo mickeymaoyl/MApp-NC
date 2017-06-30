@@ -9,8 +9,17 @@ var  setting =new Vue({
 	 },
 	 methods:{
 	 	  logout:function(){
-	 	  	   clearUserInfo();
-	 	  	   login();
+	 	  	   
+	 	  	   var param =new Object();
+	 	  	   param.username =getUsername();
+	 	  	   param.deviceid=getDeviceid();
+	 	  	   console.log(JSON.stringify(param));
+	 	  	   sendUrlCmd(this,"wxApprove","mologout",param,function(data){
+	 	  	   	   console.log("out");
+	 	  	   	   clearUserInfo();
+	 	  	   	   login();
+	 	  	   });
+	 	  	   
 	 	  },
 	 	  clearFj:function(){
 	 	  	    if(mui.os.plus){
@@ -40,9 +49,23 @@ function clearUserInfo(){
 	     }
 }
 
+function getUsername(){
+	  if(mui.os.plus){
+	  
+	      return plus.storage.getItem("username");
+	  }else{
+	  	  return "";
+	  }
+}
+
+function getDeviceid(){
+	if(mui.os.plus)
+	   return plus.device.uuid;
+}
+
 function login(){
 	  mui.openWindow({
-	  	  url:'index.html'
+	  	  url:'login.html'
 	  })
 }
 

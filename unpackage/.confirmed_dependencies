@@ -160,7 +160,9 @@
 			"fonts/mui.ttf",
 			"js/jquery-1.10.2.min.js"
 		],
-		"refer": []
+		"refer": [
+			"fjimage.html"
+		]
 	},
 	"setting.html": {
 		"resources": [
@@ -174,7 +176,8 @@
 			"js/mui.min.js"
 		],
 		"refer": [
-			"index.html"
+			"index.html",
+			"login.html"
 		]
 	},
 	"approve_yf.html": {

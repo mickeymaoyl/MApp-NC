@@ -1,9 +1,9 @@
 {
 	"@platforms": ["android", "iPhone", "iPad"],
 	"id": "H5F508889",/*应用的标识，创建应用时自动生成，勿手动修改*/
-	"name": "MApp",/*应用名称，程序桌面图标名称*/
+	"name": "移动审批",/*应用名称，程序桌面图标名称*/
 	"version": {
-		"name": "1.0.0",/*应用版本名称*/
+		"name": "1.0.1",/*应用版本名称*/
 		"code": "83"
 	},
 	"description": "",/*应用描述信息*/
@@ -359,7 +359,9 @@
 					"fonts/mui.ttf",
 					"js/jquery-1.10.2.min.js"
 				],
-				"refer": [],
+				"refer": [
+					"fjimage.html"
+				],
 				"priority": 0
 			},
 			"setting.html": {
@@ -374,7 +376,8 @@
 					"js/mui.min.js"
 				],
 				"refer": [
-					"index.html"
+					"index.html",
+					"login.html"
 				],
 				"priority": 0
 			},

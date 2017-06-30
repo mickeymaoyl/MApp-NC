@@ -1,5 +1,6 @@
 var _index =1;
 var _tapindex=0;
+var _search=false;
 var  applist =new Vue({
 	 el:"#applist",
 	 data:{
@@ -44,7 +45,7 @@ var  applist =new Vue({
 	 	 	 	   console.log("tab切换进行刷新");
 	 	 	 	   queryApproveList(getDjdl(index),this);
 	 	 	 	   _tapindex=index;
-//	 	 	 	   returnhead();
+	 	 	 	  returnhead();
 //	 	 	 	   mui(".mui-scroll-wrapper").scroll().reLayout();
 //	 	 	 	    mui(".mui-scroll-wrapper").scroll().scrollTo(0,0,100);
 	 	 	 	   //console.log(_tapindex);
@@ -60,6 +61,10 @@ var  applist =new Vue({
 	 			mui('#pullrefresh').pullRefresh().endPullupToRefresh() ;
 //	 			mui('#pullrefresh').disablePullupToRefresh();
                 console.log("上拉刷新");
+                if(_search){
+				   	    this.applist.applist=[];
+				   	    _search=false;
+	  			 }
       	 	 	queryApproveList(getDjdl(_tapindex),this.applist);
 			 },500);
 		}
@@ -82,6 +87,7 @@ function queryApproveList (_djdl,self){
 	   	   param.username=localStorage.getItem("username");
 	   	   
 	   }
+	   
 	   sendUrlCmd(self,"wxApprove","querynotapps",param,function(data){
 	   	         if(data!=null&&data.length>0){
 	   	       		 for (i=0;i<data.length;i++) {
@@ -91,6 +97,7 @@ function queryApproveList (_djdl,self){
                      
 //	 	 	 	   mui('#pullrefresh').pullRefresh().endPullupToRefresh(true);
                    mui('#pullrefresh').pullRefresh().enablePullupToRefresh();
+//                  returnhead();
 	   	        }else{
 //	   	            	mui.toast("没有更多数据了");
 	   	        	     mui('#pullrefresh').pullRefresh().endPullupToRefresh(false);
@@ -138,14 +145,15 @@ function search(){
 	  var search_dept  =document.getElementById("search_dept").value;
 	  if((search_sender==null||search_sender==undefined||search_sender=="")&&(search_dept==null||search_dept==undefined||search_dept=="")){
 	  	   mui.toast("请输入查询条件");
+	  	   return;
 	  }
 	        param  = new Object();
 			param.state='F';
 			param.billtype=getDjdl(_tapindex);
 			
 			param.index=1;
-			param.sender=search_sender;
-			param.dept=search_dept;
+			param.zdr=search_sender;
+			param.billno=search_dept;
 			if(mui.os.plus){
 	   	   		param.username=plus.storage.getItem("username");
 	  		 }else{
@@ -157,6 +165,7 @@ function search(){
 	  	       applist.index=0;
 	  	       mui('#topPopover').popover('hide');
 	  	       _index=0;
+	  	       _search=true;
 			});
 	  }
 
@@ -179,9 +188,11 @@ function getScreen(maxW, maxH) {
                 return arr; 
             } 
    function returnhead(){
-   	if(mui.os.android)
+   	   if(mui.os.android)
    	   		window.scrollTo(0, 0);
-   	   else 
+   	   else if(mui.os.ios)
+   	  	    mui('#pullrefresh').pullRefresh().scrollTo(0,0);
+   	   else
    	        mui('.mui-scroll-wrapper').scroll().scrollTo(0,0,100);
    }
 

@@ -40,7 +40,7 @@ var  applist =new Vue({
 	 	 	 	   _index=1;
 	 	 	 	   queryApproveList(getDjdl(index),this);
 	 	 	 	   _tapindex=index;
-//	 	 	 	   returnhead();
+	 	 	 	   returnhead();
 //	 	 	 	   mui(".mui-scroll-wrapper").scroll().reLayout();
 //	 	 	 	    mui(".mui-scroll-wrapper").scroll().scrollTo(0,0,100);
 	 	 	 	   //console.log(_tapindex);
@@ -116,21 +116,22 @@ function search(){
 	  var search_dept  =document.getElementById("search_dept").value;
 	  if((search_sender==null||search_sender==undefined||search_sender=="")&&(search_dept==null||search_dept==undefined||search_dept=="")){
 	  	   mui.toast("请输入查询条件");
+	  	   return;
 	  }
 	        param  = new Object();
 			param.state='F';
 			param.billtype=getDjdl(_tapindex);
 			
 			param.index=1;
-			param.sender=search_sender;
-			param.dept=search_dept;
+			param.zdr=search_sender;
+			param.billno=search_dept;
 			if(mui.os.plus){
 	   	   		param.username=plus.storage.getItem("username");
 	  		 }else{
 	   	   		param.username=localStorage.getItem("username");
 	   	   
 	  		 }
-	 		 sendUrlCmd(this,"wxApprove","querynotapps",param,function (data){
+	 		 sendUrlCmd(this,"wxApprove","queryapps",param,function (data){
 	  	       applist.applist=data;
 	  	       applist.index=0;
 	  	       mui('#topPopover').popover('hide');
@@ -155,11 +156,13 @@ function getScreen(maxW, maxH) {
                     } 
                 }()); 
                 return arr; 
-            } 
+  } 
    function returnhead(){
    	if(mui.os.android)
    	   		window.scrollTo(0, 0);
-   	   else 
+   	   else if(mui.os.ios)
+   	  	    mui('#pullrefresh').pullRefresh().scrollTo(0,0);
+   	   else
    	        mui('.mui-scroll-wrapper').scroll().scrollTo(0,0,100);
    }
 

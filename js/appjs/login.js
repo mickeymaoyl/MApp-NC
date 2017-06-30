@@ -37,9 +37,9 @@
 })();
 //登录
      function login(username,password,isauto,deviceid){
-     	//console.log("ffffsdsdfadf");
-     	     // var url ='http://192.168.2.211:9999/mologin';
-   	    	       var url='http://123.207.174.97:9999/mologin';
+       	console.log("ffffsdsdfadf");
+     	       var url='http://123.207.174.97:9999/mologin';
+   	    	      // var url='http://192.168.2.220:8089/mologin';
  	        mui.post(url,{
 				   	   username:username,
 				   	   password:password,
@@ -48,6 +48,7 @@
 				   	      if(data.returnCode=='Success'){
 				   	      	  //mainPage();
 //				   	      	  _username=username;
+                             console.log("333333333333");
 				   	      	  toMain(username);
 				   	      	  if(isauto=='true'){
 				   	      	  	console.log(isauto);
@@ -62,7 +63,7 @@
 				   	      	  }
 				   	      	 
 				   	      }else{
-				   	      	  mui.toast("登录失败，请重新输入用户名和密码");
+				   	      	  mui.toast("登录失败:"+data.returnMsg);
 				   	      	  document.getElementById("account").value='';
 				   	      	  document.getElementById("password").value='';
 				   	      }
