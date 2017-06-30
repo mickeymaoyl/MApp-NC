@@ -83,7 +83,7 @@ function createFile(billid,src){
 	 	          }
  	         }
  	       else if (filehz=='zip'||filehz=='rar'){
- 	       	    return ;
+ 	       	    mui.toast("不支持此类文件");
  	       }else if(filehz=='bmp'||filehz=='jpg'||filehz=='png'||filehz=='gif'||filehz=='jepg'){
  	       	      mui.openWindow({
    	     	        	      url:'fjimage.html',
@@ -92,5 +92,7 @@ function createFile(billid,src){
    	     	        	       	      src:localUrl
    	     	        	       }
    	     	        });
+ 	       }else{
+ 	       	    mui.toast("不支持此类文件");
  	       }
  }
