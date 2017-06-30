@@ -1,5 +1,6 @@
 var _index =1;
 var _tapindex=0;
+var _search=false;
 var  applist =new Vue({
 	 el:"#applist",
 	 data:{
@@ -54,6 +55,10 @@ var  applist =new Vue({
 	 	 pullupRefresh :function  (){
 	 		setTimeout(function(){
 	 			mui('#pullrefresh').pullRefresh().endPullupToRefresh() ;
+	 			if(_search){
+				   	    this.applist.applist=[];
+				   	    _search=false;
+	  			 }
       	 	 	queryApproveList(getDjdl(_tapindex),this.applist);
 			 },500);
 		}
@@ -136,6 +141,7 @@ function search(){
 	  	       applist.index=0;
 	  	       mui('#topPopover').popover('hide');
 	  	       _index=1;
+	  	       _search=true;
 			});
 	  }
 

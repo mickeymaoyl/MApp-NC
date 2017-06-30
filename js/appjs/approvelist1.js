@@ -35,14 +35,14 @@ var  applist =new Vue({
 	 methods:{
 	 	 tabchange:function(index){
 	 	 	 if(_tapindex==index){
-	 	 	 	console.log("点击同一页签");
+//	 	 	 	console.log("点击同一页签");
 	 	 	     return ;
 	 	 	 }else {
 	 	 	 	 
 	 	 	 	   this.applist=[];
 	 	 	 	   _index=1;
 	 	
-	 	 	 	   console.log("tab切换进行刷新");
+//	 	 	 	   console.log("tab切换进行刷新");
 	 	 	 	   queryApproveList(getDjdl(index),this);
 	 	 	 	   _tapindex=index;
 	 	 	 	  returnhead();
@@ -60,7 +60,7 @@ var  applist =new Vue({
 	 		setTimeout(function(){
 	 			mui('#pullrefresh').pullRefresh().endPullupToRefresh() ;
 //	 			mui('#pullrefresh').disablePullupToRefresh();
-                console.log("上拉刷新");
+//              console.log("上拉刷新");
                 if(_search){
 				   	    this.applist.applist=[];
 				   	    _search=false;
@@ -75,7 +75,7 @@ var  applist =new Vue({
 });
        
 function queryApproveList (_djdl,self){
-   	   console.log('#####'+self+"#####"+_djdl+"#####"+_index);
+// 	   console.log('#####'+self+"#####"+_djdl+"#####"+_index);
 	   var param  = new Object ();
 	   param.billtype =_djdl;
 	   param.index =_index;
@@ -124,7 +124,7 @@ function getDjdl(index){
 }
 
 window.addEventListener('refresh1',function (e){
-	console.log("列表开始刷新了");
+//	console.log("列表开始刷新了");
 	_index=1;
 	applist.applist=[];
 //	   console.log(applist.applist.size);
