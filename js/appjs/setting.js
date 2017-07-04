@@ -15,7 +15,7 @@ var  setting =new Vue({
 	 	  	   param.deviceid=getDeviceid();
 	 	  	   console.log(JSON.stringify(param));
 	 	  	   sendUrlCmd(this,"wxApprove","mologout",param,function(data){
-	 	  	   	   console.log("out");
+	 	  	   	
 	 	  	   	   clearUserInfo();
 	 	  	   	   login();
 	 	  	   });

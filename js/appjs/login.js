@@ -10,6 +10,7 @@
 	  var isauto =false;
 	  var _isauto ='false';
 	  var deviceid='test';
+
 	  //是否自动登录事件
 	  autoLogin.addEventListener('toggle',function(event){
 			isauto=event.detail.isActive;
@@ -23,9 +24,13 @@
 	  if(mui.os.plus){
 			  mui.plusReady(function(){
 			  	       deviceid =plus.device.uuid;
+			  	       //deviceid=plus.push.getClientInfo().clientid;
+			  	      // mui.toast(deviceid);
+			  	      var cid =plus.push.getClientInfo().clientid;
+			  	  
 			  	       loginButton.addEventListener("tap",function(event){
 						
-							 login(username.value,password.value,_isauto,deviceid);
+							 login(username.value,password.value,_isauto,deviceid,cid);
 					   });
 			  });
 	  }else {
@@ -36,19 +41,22 @@
 	
 })();
 //登录
-     function login(username,password,isauto,deviceid){
-       	console.log("ffffsdsdfadf");
+     function login(username,password,isauto,deviceid,_cid){
+//     	console.log("ffffsdsdfadf");
      	       var url='http://123.207.174.97:9999/mologin';
-   	    	      // var url='http://192.168.2.220:8089/mologin';
+   	    	       //var url='http://192.168.2.217:9999/mologin';
+// 	    	      mui.toast(plus.push.ClientInfo.clientid);
+               console.log(_cid);
  	        mui.post(url,{
 				   	   username:username,
 				   	   password:password,
-				   	   deviceid:deviceid
+				   	   deviceid:deviceid,
+				   	   cid :_cid
+				   	   
 				   },function(data){
 				   	      if(data.returnCode=='Success'){
 				   	      	  //mainPage();
 //				   	      	  _username=username;
-                             console.log("333333333333");
 				   	      	  toMain(username);
 				   	      	  if(isauto=='true'){
 				   	      	  	console.log(isauto);
@@ -56,10 +64,16 @@
 					   	      	  setLocalData("password",password);
 					   	      	  setLocalData("isauto",isauto);
 					   	      	  setLocalData("uname",data.rsdata.uname);
-					   	      	  console.log(data.rsdata.uname);
+					   	      	  if(_cid!=null){
+					   	      	     setLocalData("cid",_cid);
+					   	      	    }
+					   	      	
 				   	      	  }else{
 				   	      	  	  setLocalData("username",username);
 				   	      	  	  setLocalData("uname",data.rsdata.uname);
+				   	      	  	  if(_cid!=null){
+					   	      	     setLocalData("cid",_cid);
+					   	      	    }
 				   	      	  }
 				   	      	 
 				   	      }else{

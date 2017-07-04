@@ -118,12 +118,16 @@ var  main =new Vue({
   	    if(uid){
   	    	     var param = new Object();
   	    	    	   param.username=uid;
+//	    	    	   param.cid=plus.push.getClientInfo().clientid;
+//	    	    	   console.log(param.cid);
   	    	       sendUrlCmd(this,'wxApprove','querynotappnums',param,function(data){
   	    	       	     main.noappnum=data.rsdata.rowCount;
-  	    	       	     console.log( main.noappnum);
+  	    	       	     
   	    	       })
   	    }
   }
+  
+
 
 
 window.addEventListener('refresh1',function (e){
