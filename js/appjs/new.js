@@ -2,6 +2,7 @@ var  news =new Vue({
 	 el:"#news",
 	 data:{
 	 	 uname:'施超',
+	 	 newlist:[]
 	 },
 	 ready:function(){
 	 	 initPage();
@@ -17,22 +18,21 @@ var  news =new Vue({
 });
 
 window.addEventListener('refresh',function(e){
-//	 console.log(e);
+	 console.log('公告刷新了');
+		querynews ();
 });
 function initPage(){
 	  mui.init();
 	  mui.plusReady(function(){
 	  	     news.uname=plus.storage.getItem("uname");
-	  	     if(news.uname==null)
-	  	          news.uname='施超';
+	  	     querynews();
 //	  	      findWeather();
 	  });
 	  
 	  mui.ready(function(){
 	  	
 	  	     news.uname=localStorage.getItem("uname");
-	  	     if(news.uname==null)
-	  	          news.uname='施超';
+	  	     querynews();
 //	  	     findWeather();
 	  })
 }
@@ -61,4 +61,19 @@ function findWeather() {
           }
         });
       });
+    }
+
+
+    function querynews (){
+    	     var param = new Object();
+    	     if(mui.os.plus){
+    	     	param.username =plus.storage.getItem("username");
+    	     }else{
+    	     	param.username =localStorage.getItem("username");
+    	     }
+    	     console.log("ffff");
+    	     sendUrlCmd(this,'wxApprove','querynews',param,function(data){
+    	     	  if(data!=null&&data.length>0)
+    	     	  		 news.newlist=data;
+    	     });
     }

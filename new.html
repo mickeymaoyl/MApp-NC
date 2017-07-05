@@ -61,15 +61,22 @@
 		          </div>
 
 		   </div>-->
-		  <div class=" mui-content">
-		  <div class=" mui-card">
+		   <div>
+		   	
+		   </div>
+		  <div class=" mui-content" id="news">
+		    <!--<div class="mui-text-center" onclick="">
+		  	<iframe id="fancybox-frame" name="fancybox-frame1497601827540" frameborder="0" scrolling="no" hspace="0"  src="http://i.tianqi.com/index.php?c=code&a=getcode&id=7&h=90&w=225"></iframe>
+		  	</div>-->
+		  	<!--<div class="mui-text-center" >
+		  	<iframe height="200px" width="90%" frameborder="0" scrolling="yes" hspace="0"  src="http://3g.163.com/touch/all?dataversion=A&version=v_standard"></iframe>
+		  	</div>-->
+		  <div class=" mui-card" v-for="item in newlist">
 				<div class="mui-card-header mui-card-media" style="height:20vw;background-image:url(images/timg.jpg)"></div>
 				<div class="mui-card-content">
 					<div class="mui-card-content-inner">
-						<p>Posted on January 18, 2016</p>
-						<p style="color: #333;">北京时间6月21日，据沃神报道，洛杉矶湖人和布鲁克林篮网达成了一笔交易，湖人将德安吉洛-拉塞尔和莫兹戈夫送至篮网，并得到布鲁克-洛佩斯和今年的首轮27号选秀权。
-
-　　这笔交易对双方来说是可取所需。湖人在去年夏天签了两个烂合同——莫兹戈夫和鲁尔-邓。对于湖人现任篮球总裁“魔术师”约翰逊来说，他的首要任务就是清理掉这两个烂合同。</p>
+						<p>{{item.dmakedate}}</p>
+						<p> {{item.content}}</p>
 					</div>
 				</div>
 			</div>
