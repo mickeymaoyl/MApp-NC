@@ -44,7 +44,7 @@
      function login(username,password,isauto,deviceid,_cid){
 //     	console.log("ffffsdsdfadf");
      	       var url='http://123.207.174.97:9999/mologin';
-   	    	       //var url='http://192.168.2.217:9999/mologin';
+   	    	       //var url='http://192.168.2.219:8089/mologin';
 // 	    	      mui.toast(plus.push.ClientInfo.clientid);
                console.log(_cid);
  	        mui.post(url,{

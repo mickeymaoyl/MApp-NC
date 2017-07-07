@@ -89,6 +89,7 @@ function queryApproveList (_djdl,self){
 	   }
 	   
 	   sendUrlCmd(self,"wxApprove","querynotapps",param,function(data){
+	   	   console.log(data);
 	   	         if(data!=null&&data.length>0){
 	   	       		 for (i=0;i<data.length;i++) {
 							self.applist.push(data[i]);
