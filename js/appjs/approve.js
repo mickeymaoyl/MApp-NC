@@ -58,7 +58,11 @@ function afterApprove(data){
 		   ,1500);
 		  
 	}else{
-		  mui.toast(data.returnMsg);
+		setTimeout(function(){
+		   mui.toast(data.returnMsg);
+		   }
+		 ,3000);
+		  
 	}
 }
 
