@@ -337,7 +337,7 @@
 		                         		 </div>
 		                          </div>
 		                           
-		                           <!--1.	车船费用报销单-->
+		                           <!--车船费用报销单-->
 		                          <div class="mui-collapse-content" v-if="appinfo.djlxbm=='2642'||appinfo.djlxbm=='F-01'">
 		                             <div id="billbody" class="mui-card mui-card-content" v-for="mxitem in appinfo.detail">
 			              	                <div class="mui-row mui-row-board mui-text-center">
@@ -588,10 +588,10 @@
 		                             <div id="billbody" class="mui-card mui-card-content" v-for="fjitem in appinfo.appfj">
 			              	  
 							              	  <div class="mui-row mui-row-board mui-text-center">
-							              	  	   <div class="mui-col-xs-4 mui-col-sm-4 ">
-							              	  	   	 附件名称:   
+							              	  	   <div class="mui-col-xs-2 mui-col-sm-2 ">
+							              	  	   	 附件名称:
 							              	  	   </div>
-							              	  	    <div class="mui-col-xs-4 mui-col-sm-4 ">
+							              	  	    <div class="mui-col-xs-8 mui-col-sm-8 ">
 							              	  	   	 {{fjitem.fjmc}}
 							              	  	   </div>
 							              	  	   <div class="mui-fj mui-col-xs-2 mui-col-sm-2 mui-text-right" v-bind:id=fjitem.src v-on:tap="openFj(fjitem.src)">
@@ -618,7 +618,7 @@
 		                  </ul>
 		                  </div>
 		                  <!--
-                           审批区域
+                           审批区域111
                           -->
 		                  <div class="mui-card mui-card-content" v-if="state=='N'">
 		                  	 <div class="mui-input-row">

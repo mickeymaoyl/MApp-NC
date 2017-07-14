@@ -71,7 +71,15 @@ var  main =new Vue({
       			
       			mui.back=function(){
 	      	    }
-      			
+//    				plus.push.addEventListener( "click", function ( msg ) {  
+//					// 分析msg.payload处理业务逻辑  
+//					alert( "You clicked: " + msg.content );  
+//					}, false );
+//					
+//					plus.push.addEventListener( "receive", function ( msg ) {  
+//					// 分析msg.payload处理业务逻辑  
+//					alert( "You clicked: " + msg.content );  
+//					}, false );
       			//username=plus.storage.getItem("username");
 	      		    var curWs = plus.webview.currentWebview();
 	      				for(var i=0;i < self.tabbar.length;i++){
@@ -134,3 +142,4 @@ window.addEventListener('refresh1',function (e){
 //	console.log("列表刷新后，在更新了")
 	queryApproveNum();
 });
+

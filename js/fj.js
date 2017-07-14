@@ -5,20 +5,20 @@ function openFJ(billid,src){
 	 	    mui.plusReady(function(){
 	 	    	
 	 	     var filename = getFileName(src);
-	 	    	 if(filename==null||filename=='')
-	 	    	     return '附件名不正确';
-	 	    	     var url ='_downloads/'+billid+'/'+filename;
-//	 	    	     console.log(url);
-	 	    	 plus.io.resolveLocalFileSystemURL(url,function(entry){
-	 	    	 	    console.log("文件已存在");
-	 	    	 	    var isFile =entry.isFile;
-	 	    	 	    if(isFile){
-	 	    	 	    	       openFile(entry.fullPath);
-	 	    	 	    }
-	 	    	 },function (e){
-	 	    	 	    //如果文件不存在，下载文件
-	 	    	 	     createFile(billid,src);
-	 	    	 });	 	    	
+ 	    	 if(filename==null||filename=='')
+ 	    	     return '附件名不正确';
+ 	    	     var url ='_downloads/'+billid+'/'+filename;
+ 	    	     console.log(url);
+ 	    	 plus.io.resolveLocalFileSystemURL(url,function(entry){
+ 	    	 	    console.log("文件已存在");
+ 	    	 	    var isFile =entry.isFile;
+ 	    	 	    if(isFile){
+ 	    	 	    	       openFile(entry.fullPath);
+ 	    	 	    }
+ 	    	 },function (e){	
+ 	    	 	    //如果文件不存在，下载文件
+ 	    	 	     createFile(billid,src);
+ 	    	 });	 	    	
 	    })
 	 	    
 	 }
@@ -31,7 +31,7 @@ function getFileName(src){
 	    return '';
 //	 console.log(filenames[filenames.length-1]);
 	 
-	 return filenames[filenames.length-1]
+	 return filenames[filenames.length-1];
 }
 
 function checkFileHZ(filename){
@@ -43,21 +43,29 @@ function checkFileHZ(filename){
 
 function createFile(billid,src){
 	    var filepath='_downloads/'+billid+'/';
-//	    console.log(filepath);
+	    console.log(filepath);
 	    console.log(src);
 //	    plus.downloader.c
-	    var dtask = plus.downloader.createDownload( src, {filename:filepath}, function ( d, status ) {
-		// 下载完成
+
+		if(netPing(src) == 'success'){
+			var dtask = plus.downloader.createDownload( src, {filename:filepath}, function ( d, status ) {
+			// 下载完成
+				console.log("status:"+status);
 				if ( status == 200 ) { 
 					var sd_path = plus.io.convertLocalFileSystemURL(d.filename);
 				//	console.log("sssss");//
 					//plus.runtime.openFile(d.filename);
 					openFile(sd_path);
 				} else {
-					 console.log( "Download failed: " + status ); 
+					
+					console.log( "Download failed: " + status ); 
 				}  
-		});
-		dtask.start(); 
+			});
+			dtask.start();
+		}else{
+			setTimeout(function(){mui.toast("文件不存在!")});
+		}
+
  }
 
 
@@ -96,3 +104,19 @@ function createFile(billid,src){
  	       	    mui.toast("不支持此类文件");
  	       }
  }
+
+function netPing(url) {
+	var result ="";
+    $.ajax({
+        url: url,
+        type: 'GET',
+        async:false, 
+        complete: function(response){
+            if(response.status == 200){
+                result = 'success';
+            }
+        }
+    });
+	return result;
+}
+
