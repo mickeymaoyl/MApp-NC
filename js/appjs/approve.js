@@ -3,7 +3,8 @@ var  approve =new Vue({
 	 data:{
 	 	title:'合同管理',
 	 	state:'N',
-	 	appinfo:{}
+	 	appinfo:{},
+	 	approveMsg:[{msg:'不批准'},{msg:'不同意'},{msg:'批准'},{msg:'同意'},{msg:'已办理'},{msg:'已完成'},{msg:'已阅'},{msg:'已知悉'},{msg:'请完善相关附件信息后重新提交'}]
 	 },
 	 ready:function(){
 	 	initPage();
@@ -132,8 +133,13 @@ function setApproveInfot(data){
 	if(_state)
 	   approve.state=_state;
 }
-
-
+function popoverDlg(){
+	  mui("#msg").popover("toggle",document.getElementById("quite"));
+}
+function quite(msg){
+	$("#textarea").val(msg);
+	mui("#msg").popover("toggle");
+}
 
 
 

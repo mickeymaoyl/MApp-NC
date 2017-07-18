@@ -30,6 +30,31 @@
             	  color: white;
             }
 		
+		    .circle {
+                /*position: fixed;
+                text-align: center;*/
+                
+                margin-left: 10px;
+               /* bottom: 18px;*/
+                /*width: 20px;
+                height: 20px;
+                border-radius: 50px;
+                background: rgba(100, 177, 245, 0.8);
+                z-index: 99;*/
+        }
+          .tab-center {
+                display: table-cell;
+                overflow: hidden;
+                /*width: 1%;
+                height: 50px;
+                text-align: center;*/
+                vertical-align: middle;
+            }
+            .icon-btn{
+            	 width: 40px;
+            	 height: 20px;
+            }
+           
 		</style>
 	</head>
 
@@ -47,15 +72,23 @@
 		   	     <!--<div class="mui-slider ">-->
 				   <div class="mui-slider " style="padding: 10px 10px;">
 						<div id="segmentedControl" class="mui-segmented-control">
-							<a class="mui-control-item mui-active" href="#item1" v-on:tap="tabchange(0)">全部</a>
-							<a class="mui-control-item" href="#item2" v-on:tap="tabchange(1)">合同管理</a>
-							<a class="mui-control-item" href="#item3" v-on:tap="tabchange(2)">应付管理</a>
-							<a class="mui-control-item" href="#item3" v-on:tap="tabchange(3)">报销管理</a>
-							<a class="mui-control-item" href="#item3" v-on:tap="tabchange(4)">薪酬管理</a>
+							
+							<a id="all" class="mui-control-item mui-active" href="#item1" v-on:tap="tabchange(0)">全部</a>
+							<a id ="ht" class="mui-control-item" href="#item2" v-on:tap="tabchange(1)">合同管理</a>
+							<a id ="fk" class="mui-control-item" href="#item3" v-on:tap="tabchange(2)">付款管理</a>
+							<a id ="bx" class="mui-control-item" href="#item3" v-on:tap="tabchange(3)">报销管理</a>
+							<a id ="xz" class="mui-control-item" href="#item3" v-on:tap="tabchange(4)">薪酬管理</a>
 						</div>
 					</div>
-			
-			       <div id="topPopover" class="mui-popover" style="height: 200px; background-color: white;">
+					<div  id="search_icon" class="tab-center" onclick=popoverDlg()>
+					     <div class="circle">
+					        <img src="images/smallicon.png"  class="icon-btn"/>
+					     </div>
+					</div>
+			       <!--<div class="mui-icon mui-icon-navigate mui-badge-red">
+			       	   
+			       </div>-->
+			       <div id="topPopover" class="mui-popover" style="height: 300px; background-color: white;">
 						 <div class="mui-popover-arrow"></div>
 						 <!--<div class="mui-scroll-wrapper">-->
 							<div class="mui-card-content mui-text-center">
@@ -69,7 +102,18 @@
 									<div class="mui-content-padded   mui-search mui-input-row">
 										<input id="search_dept" type="search" class="mui-input-clear" placeholder="单据号">
 									</div>
+									<div class="mui-row mui-content-padded">
 									
+										<div class="     mui-col-sm-5 ">
+											<input id="dy" type="search" class="mui-input-clear" placeholder="大于">				
+										</div>
+										<div class="  mui-col-sm-2">
+											<span>~</span>
+										</div>
+										<div class="   mui-col-sm-5">
+											<input id="xy" type="search" class="mui-input-clear" placeholder="小于">				
+										</div>
+									</div>
 									
 							   <!--</div>-->
 							   <div class="mui-content-padded">
@@ -79,7 +123,135 @@
 						<!--</div>-->
 			
 				</div>
-			
+				<div id="allpop" class="mui-popover">
+					<ul class="mui-table-view" >
+						    <li class="mui-table-view-cell mui-media" v-for="corp in corplist" onclick="searchByCorp('{{corp.corpcode}}')" >
+						        <a href="javascript:;">
+						            
+						            <div class="mui-content-padded">
+						               {{corp.corpname}}
+						            </div>
+						        </a>
+						    </li>
+					
+						</ul>
+				</div>			
+				<div id="htpop" class="mui-popover">
+					<ul class="mui-table-view">
+						    <li class="mui-table-view-cell mui-media" onclick="searchByDjlx('Z2')">
+						        <a href="javascript:;">
+						            <img class="mui-media-object mui-pull-left" src="images/cght.png">
+						            <div class="mui-content-padded">
+						               采购合同
+						            </div>
+						        </a>
+						    </li>
+						    <li class="mui-table-view-cell mui-media" onclick="searchByDjlx('Z4')">
+						        <a href="javascript:;">
+						            <img class="mui-media-object mui-pull-left" src="images/xsht.png">
+						            <div class="mui-content-padded">
+						               销售合同
+						            </div>
+						        </a>
+						    </li>
+						    <li class="mui-table-view-cell mui-media" onclick="searchByDjlx('Z5')">
+						        <a href="javascript:;">
+						            <img class="mui-media-object mui-pull-left" src="images/qtht.png">
+						            <div class="mui-content-padded">
+						              其他合同
+						            </div>
+						        </a>
+						    </li>
+						</ul>
+				</div>			
+				<div id="fkpop" class="mui-popover">
+					<ul class="mui-table-view">
+						    <li class="mui-table-view-cell mui-media" onclick=searchByDjlx('D3')>
+						        <a href="javascript:;">
+						            <img class="mui-media-object mui-pull-left" src="images/htfk1.png">
+						            <div class="mui-content-padded">
+						               采购合同付款
+						            </div>
+						        </a>
+						    </li>
+						    <li class="mui-table-view-cell mui-media" onclick=searchByDjlx('2346')>
+						        <a href="javascript:;">
+						            <img class="mui-media-object mui-pull-left" src="images/whtfk1.png">
+						            <div class="mui-content-padded">
+						               采购无合同付款
+						            </div>
+						        </a>
+						    </li>
+						    <li class="mui-table-view-cell mui-media" onclick=searchByDjlx('F3-1')>
+						        <a href="javascript:;">
+						            <img class="mui-media-object mui-pull-left" src="images/qtht1.png">
+						            <div class="mui-content-padded">
+						              其他付款单
+						            </div>
+						        </a>
+						    </li>
+						</ul>
+				</div>			
+				<div id="bxpop" class="mui-popover">
+					<ul class="mui-table-view">
+						    <li class="mui-table-view-cell mui-media" onclick=searchByDjlx('2641')>
+						        <a href="javascript:;">
+						            <img class="mui-media-object mui-pull-left" src="images/clfbxd.png">
+						            <div class="mui-content-padded">
+						               差旅费报销单
+						            </div>
+						        </a>
+						    </li>
+						    <li class="mui-table-view-cell mui-media" onclick=searchByDjlx('2642')>
+						        <a href="javascript:;">
+						            <img class="mui-media-object mui-pull-left" src="images/ccfbxd.png">
+						            <div class="mui-content-padded">
+						               车船费报销单
+						            </div>
+						        </a>
+						    </li>
+						    <li class="mui-table-view-cell mui-media" onclick=searchByDjlx('2645')>
+						        <a href="javascript:;">
+						            <img class="mui-media-object mui-pull-left" src="images/zdfbxd.png">
+						            <div class="mui-content-padded">
+						              招待费报销单
+						            </div>
+						        </a>
+						    </li>
+						     <li class="mui-table-view-cell mui-media" onclick=searchByDjlx('2646')>
+						        <a href="javascript:;">
+						            <img class="mui-media-object mui-pull-left" src="images/hyfbxd.png">
+						            <div class="mui-content-padded">
+						              会议费报销单
+						            </div>
+						        </a>
+						    </li>
+						     <li class="mui-table-view-cell mui-media" onclick=searchByDjlx('264X-')>
+						        <a href="javascript:;">
+						            <img class="mui-media-object mui-pull-left" src="images/hqbzfiyxd.png">
+						            <div class="mui-content-padded">
+						              后勤保障费报销单
+						            </div>
+						        </a>
+						    </li>
+						    <li class="mui-table-view-cell mui-media" onclick=searchByDjlx('2644')>
+						        <a href="javascript:;">
+						            <img class="mui-media-object mui-pull-left" src="images/gdzcbxd.png">
+						            <div class="mui-content-padded">
+						             固定资产报销单
+						            </div>
+						        </a>
+						    </li>
+						    <li class="mui-table-view-cell mui-media" onclick=searchByDjlx('264X-1')>
+						        <a href="javascript:;">
+						            <img class="mui-media-object mui-pull-left" src="images/qtbxd.png">
+						            <div class="mui-content-padded">
+						             其他报销单
+						            </div>
+						        </a>
+						    </li>
+						</ul>
+				</div>			
 			      <div class="mui-slider-group  ">
 			         	<div id="pullrefresh" class=" mui-scroll-wrapper"  >
 								<div   class="mui-scroll">

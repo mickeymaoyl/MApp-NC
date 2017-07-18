@@ -50,8 +50,8 @@
   
    function login (username,password,isauto){
    	    if(isauto&&username!=null&&password!=null){
-   	    	       //var url ='http://192.168.2.219:8089/mologin';
-   	    	       var url='http://123.207.174.97:9999/mologin';
+   	    	       var url ='http://192.168.10.109:9999/mologin';
+   	    	       //var url='http://123.207.174.97:9999/mologin';
    	    	       mui.post(url,{
 				   	   username:username,
 				   	   password:password,

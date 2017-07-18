@@ -92,6 +92,15 @@ ni<!doctype html>
 	              	  	 
 	              	  </div>
 	              	  <div class="mui-row mui-row-board">
+	              	  	   <div class=" mui-bt mui-col-xs-6 mui-col-sm-3 ">
+	              	  	   	 结算方式:
+	              	  	   </div>
+	              	  	    <div class="mui-col-xs-12 mui-col-sm-9 ">
+	              	  	   	 {{appinfo.jsfsmc}}
+	              	  	   </div>
+	              	  	 
+	              	  </div>
+	              	  <div class="mui-row mui-row-board">
 	              	  	   <div class="mui-bt mui-col-xs-4 mui-col-sm-3 ">
 	              	  	   	 付款申请部门:
 	              	  	   </div>
@@ -322,8 +331,15 @@ ni<!doctype html>
                            审批区域
                           -->
 		                  <div class="mui-card mui-card-content" v-if="state=='N'">
+		                  	    <div class="mui-input-row" id="quite">
+			                  		<div class="mui-pull-right mui-inline" onclick=popoverDlg()>
+										快捷输入
+										<span class="mui-icon mui-icon-arrowdown"></span>
+									</div>
+		                  	    </div>
 		                  	 <div class="mui-input-row">
 		                  	    <div class="mui-input-row" style="margin: 10px 5px;">
+		                  	    	    
 									<textarea id="textarea" rows="5" placeholder="审批意见" class="mui-input-speech mui-input-clear"></textarea>
 								</div>
 		                  	 </div>
@@ -337,6 +353,14 @@ ni<!doctype html>
 		                  	 </div>
 		                  	 
 		                  </div>
+		                  
+		                  <div id="msg" class="mui-popover">
+								<div class="mui-scroll">
+									<ul class="mui-table-view">	
+										<li class="mui-table-view-cell" v-for="msg in approveMsg" onclick="quite('{{msg.msg}}')"><a href="#">{{msg.msg}}</a></li>
+									</ul>
+								</div>
+						  </div>			
 	    <!--
           结尾
         -->

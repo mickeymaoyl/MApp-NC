@@ -116,7 +116,9 @@
       "fonts/mui.ttf",
       "css/mui.min.css",
       "js/mui.pullToRefresh.js",
-      "js/mui.pullToRefresh.material.js"
+      "js/mui.pullToRefresh.material.js",
+      "images/cght.png",
+      "images/smallicon.png"
     ],
     "refer": [
       "approve.html",

@@ -1,11 +1,23 @@
 var _index =1;
 var _tapindex=0;
 var _search=false;
+var popver =['all','ht','fk','bx','xz'];
+var popver_name =['allpop','htpop','fkpop','bxpop','xzpop'];
 var  applist =new Vue({
 	 el:"#applist",
 	 data:{
 	 	applist:[],
-		
+		corplist:[  {corpcode:'010200',corpname:'江苏海宇航务工程'},
+		            {corpcode:'010201',corpname:'江苏海宇南京分公司'},
+					{corpcode:'010202',corpname:'江苏海宇镇江分公司'},
+					{corpcode:'010203',corpname:'江苏海宇扬州分公司'},
+					{corpcode:'010204',corpname:'江苏海宇泰州分公司'},
+					{corpcode:'010205',corpname:'江苏海宇常州分公司'},
+					{corpcode:'010206',corpname:'江苏海宇江阴分公司'},
+					{corpcode:'010207',corpname:'江苏海宇张家港分公司'},
+					{corpcode:'010208',corpname:'江苏海宇常熟分公司'},
+					{corpcode:'010209',corpname:'江苏海宇南通分公司'},
+					{corpcode:'010210',corpname:'江苏海宇太仓分公司'},]
 	 },
 	 ready:function(){
 	 					mui.init({
@@ -34,6 +46,7 @@ var  applist =new Vue({
 	 },
 	 methods:{
 	 	 tabchange:function(index){
+//	 	 	mui('#sheet1').popover('toggle');
 	 	 	 if(_tapindex==index){
 //	 	 	 	console.log("点击同一页签");
 	 	 	     return ;
@@ -77,7 +90,7 @@ var  applist =new Vue({
 function queryApproveList (_djdl,self){
 // 	   console.log('#####'+self+"#####"+_djdl+"#####"+_index);
 	   var param  = new Object ();
-	   param.billtype =_djdl;
+	   param.billtype =_djdl||'all';
 	   param.index =_index;
 	   if(mui.os.plus){
 	   	
@@ -87,6 +100,8 @@ function queryApproveList (_djdl,self){
 	   	   param.username=localStorage.getItem("username");
 	   	   
 	   }
+	   if(param.username==null||param.username==''||param.username==undefined)
+	         param.username='cs';
 	   
 	   sendUrlCmd(self,"wxApprove","querynotapps",param,function(data){
 	   	   console.log(data);
@@ -95,6 +110,7 @@ function queryApproveList (_djdl,self){
 							self.applist.push(data[i]);
 					  }
 	   	        		 _index=_index+1;
+	   	        		 console.log(self.applist);
                      
 //	 	 	 	   mui('#pullrefresh').pullRefresh().endPullupToRefresh(true);
                    mui('#pullrefresh').pullRefresh().enablePullupToRefresh();
@@ -144,7 +160,10 @@ function search(){
 //	console.log("search");
 	  var search_sender =document.getElementById("search_sender").value;
 	  var search_dept  =document.getElementById("search_dept").value;
-	  if((search_sender==null||search_sender==undefined||search_sender=="")&&(search_dept==null||search_dept==undefined||search_dept=="")){
+	  var dy   =document.getElementById("dy").value;
+	  var xy   =document.getElementById("xy").value;
+	  if((search_sender==null||search_sender==undefined||search_sender=="")&&(search_dept==null||search_dept==undefined||search_dept=="")
+	     &&(dy==null||dy==undefined||dy=="")&&(xy==null||xy==undefined||xy=="")){
 	  	   mui.toast("请输入查询条件");
 	  	   return;
 	  }
@@ -155,6 +174,8 @@ function search(){
 			param.index=1;
 			param.zdr=search_sender;
 			param.billno=search_dept;
+			param.dy=dy;
+			param.xy=xy;
 			if(mui.os.plus){
 	   	   		param.username=plus.storage.getItem("username");
 	  		 }else{
@@ -217,7 +238,52 @@ function getScreen(maxW, maxH) {
    	     	  mui.toast("没有审批的数据");
    	     }
    }
+   function popoverDlg(){
+   	       var id="#"+popver_name[_tapindex];
+   	       mui(id).popover("toggle",document.getElementById(popver[_tapindex]));
+   }
    
+   function searchByDjlx(djlx){
+   	        var param =new Object();
+// 	        param.djlx =djlx;
+   	        param.state='F';
+			param.billtype=djlx;
+   	      	if(mui.os.plus){
+	   	   		param.username=plus.storage.getItem("username");
+	  		 }else{
+	   	   		param.username=localStorage.getItem("username");
+	   	   
+	  		 }
+	  		  queryApproveListForSearch(param);
+   	      
+   }
+   
+   function searchByCorp(corp){
+   	console.log(corp)
+   	        var param =new Object();
+   	        param.corp =corp;
+   	        param.state='F';
+			param.billtype=getDjdl(_tapindex);
+   	      	if(mui.os.plus){
+	   	   		param.username=plus.storage.getItem("username");
+	  		 }else{
+	   	   		param.username=localStorage.getItem("username");
+	   	   
+	  		 }
+	  		 queryApproveListForSearch(param);
+   	      
+   }
+   
+   function queryApproveListForSearch(param){
+   	param.index=1;
+   	 sendUrlCmd(this,"wxApprove","querynotapps",param,function (data){
+	  	       applist.applist=data;
+	  	       applist.index=0;
+	  	       popoverDlg();
+	  	       _index=0;
+	  	       _search=true;
+			});
+   }
    
    function getApproveUrl(djdl){
    	     switch (djdl){
